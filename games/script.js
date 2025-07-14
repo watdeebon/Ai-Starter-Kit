@@ -92,11 +92,16 @@
             }
         }
         
+        console.log('JSONP Request URL:', requestUrl); // Debug log
+        
         // สร้าง callback function
         window[callbackName] = function(data) {
+            console.log('JSONP Response:', data); // Debug log
             callback(data);
             // ลบ script element และ callback function
-            document.head.removeChild(script);
+            if (document.head.contains(script)) {
+                document.head.removeChild(script);
+            }
             delete window[callbackName];
         };
         
@@ -104,9 +109,29 @@
         const script = document.createElement('script');
         script.src = requestUrl;
         script.onerror = function() {
+            console.error('JSONP Error for URL:', requestUrl);
             callback({ status: 'error', message: 'Network error' });
-            document.head.removeChild(script);
+            if (document.head.contains(script)) {
+                document.head.removeChild(script);
+            }
             delete window[callbackName];
+        };
+        
+        // เพิ่ม timeout
+        const timeout = setTimeout(() => {
+            console.error('JSONP Timeout for URL:', requestUrl);
+            callback({ status: 'error', message: 'Request timeout' });
+            if (document.head.contains(script)) {
+                document.head.removeChild(script);
+            }
+            delete window[callbackName];
+        }, 10000); // 10 วินาที timeout
+        
+        // Override callback เพื่อ clear timeout
+        const originalCallback = window[callbackName];
+        window[callbackName] = function(data) {
+            clearTimeout(timeout);
+            originalCallback(data);
         };
         
         document.head.appendChild(script);
@@ -119,16 +144,21 @@
             return;
         }
 
+        console.log('Saving score for user:', gameState.currentUser.displayName, 'Score:', gameState.score);
+
         const scoreData = {
             action: 'saveScore',
             userId: gameState.currentUser.userId,
             name: gameState.currentUser.displayName,
             pictureUrl: gameState.currentUser.pictureUrl,
-            score: gameState.score,
+            score: gameState.score.toString(), // แปลงเป็น string
             timestamp: new Date().toISOString()
         };
 
+        console.log('Score data to save:', scoreData);
+
         makeJSONPRequest(CONFIG.GAS_URL, scoreData, function(response) {
+            console.log('Save score response:', response);
             if (response.status === 'success') {
                 console.log('Score saved successfully');
             } else {
@@ -138,13 +168,32 @@
     }
 
     function loadLeaderboard(callback) {
+        console.log('Loading leaderboard...');
+        
         makeJSONPRequest(CONFIG.GAS_URL, { action: 'getLeaderboard' }, function(response) {
+            console.log('Leaderboard response:', response);
             if (response.status === 'success') {
                 gameState.leaderboard = response.data || [];
+                console.log('Leaderboard loaded:', gameState.leaderboard.length, 'players');
                 if (callback) callback(gameState.leaderboard);
             } else {
                 console.error('Error loading leaderboard:', response.message || 'Unknown error');
                 if (callback) callback([]);
+            }
+        });
+    }
+
+    // เพิ่มฟังก์ชันทดสอบ API
+    function testAPI() {
+        console.log('Testing API connection...');
+        makeJSONPRequest(CONFIG.GAS_URL, { action: 'testAPI' }, function(response) {
+            console.log('API Test Response:', response);
+            if (response.status === 'success') {
+                console.log('✅ API connection successful!');
+                alert('API ทำงานปกติ!\n' + response.data.message);
+            } else {
+                console.error('❌ API connection failed!');
+                alert('API มีปัญหา!\n' + response.message);
             }
         });
     }
