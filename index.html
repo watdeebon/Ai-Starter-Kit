@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=400, initial-scale=1.0">
+  <title>AI Starter Kit สำหรับครูยุคใหม่</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fff;
+      color: #1a202c;
+      font-family: 'Prompt', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, #ffe066 0%, #2563eb 100%);
+      padding: 2rem 0 1.2rem 0;
+      border-bottom-left-radius: 2rem 2rem;
+      border-bottom-right-radius: 2rem 2rem;
+      box-shadow: 0 4px 32px 0 #2563eb22;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    header img {
+      height: 54px;
+      margin-bottom: 0.6rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px #ffe06644;
+    }
+    header h1 {
+      margin: 0.2rem 0 0.1rem 0;
+      font-size: 2.1rem;
+      color: #232323;
+      font-weight: 700;
+    }
+    header .subtitle {
+      font-size: 1.13rem;
+      color: #232323bb;
+      margin-bottom: 0.5rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      padding: 1.2rem 1rem;
+    }
+    section {
+      margin-bottom: 2.3rem;
+      background: #fffde2;
+      border-radius: 1.3rem;
+      box-shadow: 0 2px 18px 0 #2563eb0d;
+      padding: 1.3rem 1.2rem 1.2rem 1.2rem;
+      border-left: 8px solid #ffe066;
+      border-right: 2px solid #2563eb22;
+    }
+    section h2 {
+      margin: 0 0 0.7rem 0;
+      color: #2563eb;
+      font-size: 1.27rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    ul,ol {
+      margin: 0.5rem 0 0.5rem 1.5rem;
+    }
+    .link-list {
+      margin: 0.5rem 0 0.5rem 0;
+      padding: 0;
+      list-style: none;
+    }
+    .link-list li {
+      margin-bottom: 0.9rem;
+    }
+    .link-list a {
+      color: #2563eb;
+      background: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.35rem 1rem;
+      border-radius: 1.1rem;
+      box-shadow: 0 1px 8px #2563eb18;
+      transition: background 0.18s;
+      border: 1.2px solid #2563eb22;
+    }
+    .link-list a:hover { background: #f1f5f9; }
+    .card {
+      background: #fff;
+      border-radius: 1.1rem;
+      box-shadow: 0 1px 8px #ffe06638;
+      padding: 1rem;
+      margin-bottom: 0.7rem;
+    }
+    .prompt-box {
+      background: #f3f4f6;
+      border-left: 4px solid #ffe066;
+      padding: 0.85rem 1rem;
+      border-radius: 1rem;
+      margin: 0.6rem 0 0.8rem 0;
+      font-size: 1.07rem;
+      color: #232323;
+    }
+    .best {
+      background: #e6f7f5;
+      border-left: 5px solid #22d3ee;
+    }
+    .btn-feedback {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-radius: 1.3rem;
+      padding: 0.5rem 1.5rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      box-shadow: 0 2px 8px #2563eb44;
+      transition: background 0.16s;
+    }
+    .btn-feedback:hover {
+      background: #1746a0;
+    }
+    @media (max-width: 600px) {
+      main { padding: 0.2rem 0.1rem; }
+      section { padding: 1.1rem 0.5rem; }
+      header { padding: 1.5rem 0 0.7rem 0; border-radius: 0 0 1.2rem 1.2rem; }
+      header h1 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/watdeebon/LineBot/refs/heads/main/logo-BotWDB.png" alt="AI Starter Kit">
+    <h1>AI Starter Kit</h1>
+    <div class="subtitle">สำหรับครูยุคใหม่ : รวมสื่อ & ตัวอย่างใช้งาน AI ในห้องเรียน</div>
+    <div style="font-size:1rem;color:#232323;">หลักสูตรอบรม 1 วัน (3 ชั่วโมง) | “AI สำหรับครูยุคใหม่: สร้างสรรค์การเรียนรู้อย่างสร้างสรรค์ด้วยปัญญาประดิษฐ์”</div>
+  </header>
+  <main>
+    <section>
+      <h2>1. เปิดโลก AI กับคุณครู</h2>
+      <div class="prompt-box">
+        <b>กิจกรรม Ice Breaking:</b>  
+        <ul>
+          <li>เกม Kahoot/Quiz “คุณเข้าใจ AI แค่ไหน?”</li>
+          <li>คลิปแนะนำ AI รอบตัว ( <a href="https://youtu.be/wK6g6KkI_8c" target="_blank">AI คืออะไร? (YouTube)</a> )</li>
+        </ul>
+      </div>
+      <div class="card">
+        <b>ตัวอย่างคำถาม/พูดคุย:</b>
+        <ul>
+          <li>AI คืออะไร? (What is AI?)</li>
+          <li>AI อยู่ในชีวิตประจำวันเราตรงไหนบ้าง?</li>
+          <li>AI ในการศึกษา ทำอะไรได้?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. ลองใช้ AI ช่วยสอนจริง!</h2>
+      <div class="prompt-box">
+        <b>แนะนำเครื่องมือยอดนิยม:</b>
+        <ul>
+          <li><a href="https://chat.openai.com/" target="_blank">ChatGPT</a> - สร้างใบงาน, เนื้อหาสรุป, นิทาน, Quiz</li>
+          <li><a href="https://www.bing.com/images/create" target="_blank">Bing Image Creator</a> - สร้างภาพประกอบ/การ์ตูน/ภาพกิจกรรม</li>
+          <li><a href="https://www.canva.com/" target="_blank">Canva AI</a> - ออกแบบโปสเตอร์/ใบงาน AI, Text to Image</li>
+          <li><a href="https://www.kahoot.com/" target="_blank">Kahoot</a> - Quiz Game & สำรวจความรู้</li>
+          <li><a href="https://www.flippity.net/" target="_blank">Flippity</a> - สร้าง Flashcard/เกมจาก Google Sheet</li>
+        </ul>
+      </div>
+      <div class="card">
+        <b>Workshop 1: ทดลองใช้ AI จริง</b>
+        <ol>
+          <li>แบ่งกลุ่ม เลือกหัวข้อ/บทเรียน</li>
+          <li>เลือกเครื่องมือ AI ข้างบน สร้าง “ใบงาน / กิจกรรม / นิทาน / Quiz / Flashcard”</li>
+          <li>นำเสนอผลงานแต่ละกลุ่ม (5-10 นาที)</li>
+        </ol>
+      </div>
+      <div class="prompt-box">
+        <b>Prompt ตัวอย่าง:</b><br>
+        <b>1) สร้างใบงานคณิตศาสตร์ ป.4 เรื่องเศษส่วน</b><br>
+        <span style="color:#2563eb;">“ช่วยออกใบงานคณิตศาสตร์สำหรับนักเรียน ป.4 เรื่อง เศษส่วน จำนวน 10 ข้อ พร้อมเฉลย”</span><br><br>
+        <b>2) แต่งนิทานสั้นสำหรับเด็กอนุบาล เรื่อง “การแบ่งปัน”</b><br>
+        <span style="color:#2563eb;">“แต่งนิทานสั้นสำหรับเด็กอนุบาล 1 หน้า เรื่อง การแบ่งปัน พร้อมข้อคิดท้ายเรื่อง”</span>
+      </div>
+      <div class="prompt-box best">
+        <b>Tips & Tricks:</b>
+        <ul>
+          <li>ขอ AI สร้างเฉลย พร้อมคำอธิบายเพิ่มเติม</li>
+          <li>อย่าลืมตรวจสอบเนื้อหาก่อนนำไปใช้ในห้องเรียน</li>
+          <li>แนะนำใช้ AI ในทางที่ปลอดภัยสำหรับเด็ก (อย่าใส่ข้อมูลส่วนตัว!)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. สร้างนวัตกรรมในห้องเรียน</h2>
+      <div class="card">
+        <b>Workshop 2:</b>
+        <ol>
+          <li>ระดมสมอง “ปัญหา/โจทย์” ที่คุณครูเจอจริง</li>
+          <li>ช่วยกันออกแบบนวัตกรรมเล็ก ๆ ด้วย AI (สื่อ/กิจกรรม/ระบบช่วยสอน ฯลฯ)</li>
+          <li>Mini Pitching: นำเสนอแนวคิดแต่ละกลุ่ม</li>
+        </ol>
+      </div>
+      <div class="prompt-box">
+        <b>Prompt สำหรับระดมไอเดีย:</b>
+        <ul>
+          <li style="color:#2563eb;">“ช่วยคิดกิจกรรม STEM สนุก ๆ สำหรับเด็ก ป.6 ใช้อุปกรณ์ในห้องเรียน”</li>
+          <li style="color:#2563eb;">“ช่วยวางแผนบทเรียนภาษาอังกฤษใน 1 สัปดาห์ สำหรับ ป.3”</li>
+          <li style="color:#2563eb;">“ช่วยออกแบบเกมทบทวนความรู้เรื่องโลกและอวกาศสำหรับเด็ก”</li>
+        </ul>
+      </div>
+      <div class="prompt-box best">
+        <b>Best Practice:</b>
+        <ul>
+          <li>เริ่มจากปัญหาจริงของครู-นักเรียน แล้วใช้ AI เป็น “ตัวช่วย” ไม่ใช่ “ตัวแทน”</li>
+          <li>AI = ผู้ช่วย, ครู = ผู้นำชั้นเรียน!</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. รวมลิงก์สื่อ & แหล่งเรียนรู้ AI</h2>
+      <ul class="link-list">
+        <li>
+          <a href="https://ai4kids.aiat.or.th/" target="_blank">AI for Kids (AIAT)</a> — แหล่งเรียนรู้ AI สำหรับเด็กไทย
+        </li>
+        <li>
+          <a href="https://www.helloruby.com/" target="_blank">Hello Ruby</a> — เรียนรู้คอมพิวเตอร์/AI แบบนิทาน
+        </li>
+        <li>
+          <a href="https://www.learnai.today/" target="_blank">LearnAI.today</a> — บทเรียน AI ครูไทย
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@aichanneltutor" target="_blank">YouTube: AI Channel Tutor</a> — คลิปการใช้ AI เพื่อครู
+        </li>
+        <li>
+          <a href="https://www.teachai.org/" target="_blank">TeachAI.org</a> — บทเรียนและแนวทางสอน AI ทั่วโลก
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Feedback & ถาม-ตอบ</h2>
+      <div class="prompt-box">
+        <b>ฟอร์มประเมิน/Feedback หลังอบรม:</b><br>
+        <a class="btn-feedback" href="https://forms.gle/fMaWwsXK8EfGyFKy6" target="_blank">ส่ง Feedback คลิกที่นี่</a>
+      </div>
+      <div class="card" style="background:#fffbe2;">
+        <b>สงสัยอะไร? แชร์เทคนิค-ไอเดียเพิ่มเติม ได้ที่ <a href="https://lin.ee/ejtvVyu" target="_blank">LINE ครู AI Starter</a></b>
+      </div>
+    </section>
+  </main>
+  <div style="text-align:center;font-size:0.96rem;color:#999;margin:2.2rem 0 1.3rem 0;">
+    &copy; 2025 AI Starter Kit for Teachers • Design by <b>WD connect x ที่รัก</b>
+  </div>
+</body>
+</html>
