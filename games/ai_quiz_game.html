@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Challenge</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Loading Screen -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>กำลังโหลด AI Quiz...</p>
+        </div>
+
+        <!-- Main Game -->
+        <div id="game" style="display: none;">
+            <div class="header">
+                <img src="https://raw.githubusercontent.com/watdeebon/LineBot/refs/heads/main/logo-BotWDB.png" alt="WDB Logo" class="logo">
+                <h1>🤖 AI Quiz Challenge</h1>
+                <p>ทดสอบความรู้ AI ของคุณ!</p>
+            </div>
+
+            <!-- User Info -->
+            <div id="userInfo" class="user-info" style="display: none;">
+                <img id="userAvatar" class="user-avatar" src="" alt="Avatar">
+                <div class="user-details">
+                    <h3 id="userName">ผู้เล่น</h3>
+                    <p>พร้อมเริ่มเกมแล้ว!</p>
+                </div>
+            </div>
+
+            <!-- Start Screen -->
+            <div id="startScreen">
+                <div class="start-content">
+                    <h2>📋 กฎของเกม</h2>
+                    <ul class="rules-list">
+                        <li>มีคำถาม 10 ข้อ เกี่ยวกับ AI และการศึกษา</li>
+                        <li>แต่ละข้อมีเวลา 30 วินาที</li>
+                        <li>ตอบถูก = 10 คะแนน</li>
+                        <li>ตอบเร็วจะได้โบนัสคะแนน</li>
+                        <li>ดูลีดเดอร์บอร์ดและแชร์ผลได้</li>
+                    </ul>
+                    <div class="start-buttons">
+                        <button class="btn btn-primary" onclick="startQuiz()">🚀 เริ่มเกม</button>
+                        <button class="btn btn-secondary" onclick="showLeaderboard()">🏆 ดูลีดเดอร์บอร์ด</button>
+                        <button class="btn btn-accent" onclick="testAPI()">🔧 ทดสอบ API</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz -->
+            <div id="quizContainer" class="quiz-container">
+                <div class="question-header">
+                    <div class="question-counter">
+                        <span id="questionNumber">1</span>/10
+                    </div>
+                    <div class="streak-display" id="streakDisplay" style="display: none;">
+                        🔥 <span id="streakCount">0</span>
+                    </div>
+                    <div class="timer" id="timer">30</div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <!-- Power-ups -->
+                <div id="powerUpsContainer" class="power-ups" style="display: none;">
+                    <button class="power-up" id="fiftyFiftyBtn" onclick="usePowerUp('fiftyFifty')" title="ลบตัวเลือกผิด 2 ตัว">
+                        🎯 50:50
+                    </button>
+                    <button class="power-up" id="extraTimeBtn" onclick="usePowerUp('extraTime')" title="เพิ่มเวลา 15 วินาที">
+                        ⏰ +15s
+                    </button>
+                    <button class="power-up" id="skipQuestionBtn" onclick="usePowerUp('skipQuestion')" title="ข้ามข้อนี้">
+                        ⏭️ Skip
+                    </button>
+                </div>
+
+                <div class="question" id="questionContainer">
+                    <h3 id="questionText">กำลังโหลดคำถาม...</h3>
+                    <div class="answers" id="answersContainer">
+                        <!-- Answers will be inserted here -->
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" style="display: none;">ข้อต่อไป</button>
+            </div>
+
+            <!-- Leaderboard Only View -->
+            <div id="leaderboardView" style="display: none;">
+                <div class="leaderboard-header">
+                    <h2>🏆 ลีดเดอร์บอร์ด</h2>
+                    <button class="btn btn-secondary" onclick="backToStart()">← กลับ</button>
+                </div>
+                <div class="leaderboard" id="standAloneLeaderboard">
+                    <div id="standAloneLeaderboardList">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>กำลังโหลดลีดเดอร์บอร์ด...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="leaderboard-actions">
+                    <button class="btn btn-accent" onclick="shareLeaderboard()">📤 แชร์ลีดเดอร์บอร์ด</button>
+                    <button class="btn btn-primary" onclick="startQuiz()">🎮 เริ่มเล่น</button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="results">
+                <div class="score-display">
+                    <h2>🎉 เสร็จสิ้น!</h2>
+                    <div class="score" id="finalScore">0</div>
+                    <p id="scoreMessage">คะแนนจาก 100</p>
+                </div>
+
+                <div class="leaderboard" id="leaderboardContainer">
+                    <h3>🏆 ลีดเดอร์บอร์ด</h3>
+                    <div id="leaderboardList">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>กำลังโหลดลีดเดอร์บอร์ด...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="share-buttons">
+                    <button class="btn btn-accent" onclick="shareScore()">📤 แชร์คะแนน</button>
+                    <button class="btn btn-secondary" onclick="shareLeaderboard()">🏆 แชร์ลีดเดอร์บอร์ด</button>
+                </div>
+
+                <button class="btn btn-primary" onclick="restartQuiz()">🔄 เล่นใหม่</button>
+            </div>
+        </div>
+
+        <!-- Error Display -->
+        <div id="error" class="error" style="display: none;">
+            <strong>เกิดข้อผิดพลาด:</strong>
+            <span id="errorMessage"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
