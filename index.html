@@ -2,257 +2,867 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=400, initial-scale=1.0">
-  <title>AI Starter Kit สำหรับครูยุคใหม่</title>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Starter Kit สำหรับครูยุคใหม่ - Enhanced</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body {
-      background: #fff;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #1a202c;
       font-family: 'Prompt', sans-serif;
       margin: 0;
       min-height: 100vh;
-    }
-    header {
-      background: linear-gradient(90deg, #ffe066 0%, #2563eb 100%);
-      padding: 2rem 0 1.2rem 0;
-      border-bottom-left-radius: 2rem 2rem;
-      border-bottom-right-radius: 2rem 2rem;
-      box-shadow: 0 4px 32px 0 #2563eb22;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    header img {
-      height: 54px;
-      margin-bottom: 0.6rem;
-      border-radius: 1rem;
-      box-shadow: 0 2px 8px #ffe06644;
-    }
-    header h1 {
-      margin: 0.2rem 0 0.1rem 0;
-      font-size: 2.1rem;
-      color: #232323;
-      font-weight: 700;
-    }
-    header .subtitle {
-      font-size: 1.13rem;
-      color: #232323bb;
-      margin-bottom: 0.5rem;
-    }
-    main {
-      max-width: 800px;
-      margin: 0 auto 2rem auto;
-      padding: 1.2rem 1rem;
-    }
-    section {
-      margin-bottom: 2.3rem;
-      background: #fffde2;
-      border-radius: 1.3rem;
-      box-shadow: 0 2px 18px 0 #2563eb0d;
-      padding: 1.3rem 1.2rem 1.2rem 1.2rem;
-      border-left: 8px solid #ffe066;
-      border-right: 2px solid #2563eb22;
-    }
-    section h2 {
-      margin: 0 0 0.7rem 0;
-      color: #2563eb;
-      font-size: 1.27rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-    ul,ol {
-      margin: 0.5rem 0 0.5rem 1.5rem;
-    }
-    .link-list {
-      margin: 0.5rem 0 0.5rem 0;
       padding: 0;
-      list-style: none;
     }
-    .link-list li {
-      margin-bottom: 0.9rem;
-    }
-    .link-list a {
-      color: #2563eb;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       background: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 0.35rem 1rem;
-      border-radius: 1.1rem;
-      box-shadow: 0 1px 8px #2563eb18;
-      transition: background 0.18s;
-      border: 1.2px solid #2563eb22;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 20px;
+      margin-bottom: 40px;
     }
-    .link-list a:hover { background: #f1f5f9; }
-    .card {
-      background: #fff;
-      border-radius: 1.1rem;
-      box-shadow: 0 1px 8px #ffe06638;
-      padding: 1rem;
-      margin-bottom: 0.7rem;
+    
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .prompt-box {
-      background: #f3f4f6;
-      border-left: 4px solid #ffe066;
-      padding: 0.85rem 1rem;
-      border-radius: 1rem;
-      margin: 0.6rem 0 0.8rem 0;
-      font-size: 1.07rem;
-      color: #232323;
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
     }
-    .best {
-      background: #e6f7f5;
-      border-left: 5px solid #22d3ee;
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.05); opacity: 0.8; }
     }
-    .btn-feedback {
-      display: inline-block;
-      background: #2563eb;
+    
+    header img {
+      height: 80px;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
       color: #fff;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-radius: 1.3rem;
-      padding: 0.5rem 1.5rem;
-      margin-top: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    
+    header .subtitle {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.9);
+      margin: 1rem 0;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .course-info {
+      background: rgba(255,255,255,0.15);
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      margin-top: 1.5rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+      z-index: 1;
+    }
+    
+    nav {
+      background: #2d3748;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    nav li {
+      margin: 0 1rem;
+    }
+    
+    nav a {
+      color: #fff;
       text-decoration: none;
-      box-shadow: 0 2px 8px #2563eb44;
-      transition: background 0.16s;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s;
+      font-weight: 500;
     }
-    .btn-feedback:hover {
-      background: #1746a0;
+    
+    nav a:hover {
+      background: #667eea;
+      transform: translateY(-2px);
     }
-    @media (max-width: 600px) {
-      main { padding: 0.2rem 0.1rem; }
-      section { padding: 1.1rem 0.5rem; }
-      header { padding: 1.5rem 0 0.7rem 0; border-radius: 0 0 1.2rem 1.2rem; }
-      header h1 { font-size: 1.2rem; }
+    
+    main {
+      padding: 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 2rem;
+      border-left: 6px solid #667eea;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .section h2 {
+      margin: 0 0 1.5rem 0;
+      color: #667eea;
+      font-size: 2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .section-number {
+      background: #667eea;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    .activity-box {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1rem 0;
+      box-shadow: 0 5px 15px rgba(240, 147, 251, 0.3);
+    }
+    
+    .prompt-box {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1rem 0;
+      box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+    }
+    
+    .best-practice {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1rem 0;
+      box-shadow: 0 5px 15px rgba(67, 233, 123, 0.3);
+    }
+    
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .tool-card {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .tool-card:hover {
+      border-color: #667eea;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+    }
+    
+    .tool-card h3 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .tool-card p {
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #667eea;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      background: #5a67d8;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-secondary {
+      background: #718096;
+    }
+    
+    .btn-secondary:hover {
+      background: #4a5568;
+    }
+    
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #667eea;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 80px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #667eea;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 4px #667eea;
+    }
+    
+    .timeline-content {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+    
+    .warning-box {
+      background: #fed7d7;
+      border: 1px solid #fc8181;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      color: #742a2a;
+    }
+    
+    .success-box {
+      background: #c6f6d5;
+      border: 1px solid #68d391;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      color: #22543d;
+    }
+    
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .resource-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .resource-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+    }
+    
+    .resource-card a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    footer {
+      background: #2d3748;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feedback-section {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
+    .progress-bar {
+      background: #e2e8f0;
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: #667eea;
+      transition: width 0.3s;
+    }
+    
+    .timer {
+      display: inline-block;
+      background: #667eea;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      margin: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .container { margin: 10px; border-radius: 15px; }
+      header { padding: 2rem 1rem; }
+      header h1 { font-size: 2rem; }
+      main { padding: 1rem; }
+      .section { padding: 1.5rem; }
+      .tool-grid { grid-template-columns: 1fr; }
+      nav ul { flex-direction: column; align-items: center; }
+      nav li { margin: 0.25rem 0; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://raw.githubusercontent.com/watdeebon/LineBot/refs/heads/main/logo-BotWDB.png" alt="AI Starter Kit">
-    <h1>AI Starter Kit</h1>
-    <div class="subtitle">สำหรับครูยุคใหม่ : รวมสื่อ & ตัวอย่างใช้งาน AI ในห้องเรียน</div>
-    <div style="font-size:1rem;color:#232323;">หลักสูตรอบรม 1 วัน (3 ชั่วโมง) | “AI สำหรับครูยุคใหม่: สร้างสรรค์การเรียนรู้อย่างสร้างสรรค์ด้วยปัญญาประดิษฐ์”</div>
-  </header>
-  <main>
-    <section>
-      <h2>1. เปิดโลก AI กับคุณครู</h2>
-      <div class="prompt-box">
-        <b>กิจกรรม Ice Breaking:</b>  
-        <ul>
-          <li>เกม Kahoot/Quiz “คุณเข้าใจ AI แค่ไหน?”</li>
-          <li>คลิปแนะนำ AI รอบตัว ( <a href="https://youtu.be/wK6g6KkI_8c" target="_blank">AI คืออะไร? (YouTube)</a> )</li>
-        </ul>
+  <div class="container">
+    <header>
+      <img src="https://raw.githubusercontent.com/watdeebon/LineBot/refs/heads/main/logo-BotWDB.png" alt="AI Starter Kit">
+      <h1>AI Starter Kit</h1>
+      <div class="subtitle">สำหรับครูยุคใหม่: สร้างสรรค์การเรียนรู้ด้วยปัญญาประดิษฐ์</div>
+      <div class="course-info">
+        <strong>หลักสูตรอบรม 1 วัน (6 ชั่วโมง)</strong><br>
+        "AI สำหรับครูยุคใหม่: สร้างสรรค์การเรียนรู้อย่างสร้างสรรค์ด้วยปัญญาประดิษฐ์"
       </div>
-      <div class="card">
-        <b>ตัวอย่างคำถาม/พูดคุย:</b>
-        <ul>
-          <li>AI คืออะไร? (What is AI?)</li>
-          <li>AI อยู่ในชีวิตประจำวันเราตรงไหนบ้าง?</li>
-          <li>AI ในการศึกษา ทำอะไรได้?</li>
-        </ul>
-      </div>
-    </section>
+    </header>
 
-    <section>
-      <h2>2. ลองใช้ AI ช่วยสอนจริง!</h2>
-      <div class="prompt-box">
-        <b>แนะนำเครื่องมือยอดนิยม:</b>
-        <ul>
-          <li><a href="https://chat.openai.com/" target="_blank">ChatGPT</a> - สร้างใบงาน, เนื้อหาสรุป, นิทาน, Quiz</li>
-          <li><a href="https://www.bing.com/images/create" target="_blank">Bing Image Creator</a> - สร้างภาพประกอบ/การ์ตูน/ภาพกิจกรรม</li>
-          <li><a href="https://www.canva.com/" target="_blank">Canva AI</a> - ออกแบบโปสเตอร์/ใบงาน AI, Text to Image</li>
-          <li><a href="https://www.kahoot.com/" target="_blank">Kahoot</a> - Quiz Game & สำรวจความรู้</li>
-          <li><a href="https://www.flippity.net/" target="_blank">Flippity</a> - สร้าง Flashcard/เกมจาก Google Sheet</li>
-        </ul>
-      </div>
-      <div class="card">
-        <b>Workshop 1: ทดลองใช้ AI จริง</b>
-        <ol>
-          <li>แบ่งกลุ่ม เลือกหัวข้อ/บทเรียน</li>
-          <li>เลือกเครื่องมือ AI ข้างบน สร้าง “ใบงาน / กิจกรรม / นิทาน / Quiz / Flashcard”</li>
-          <li>นำเสนอผลงานแต่ละกลุ่ม (5-10 นาที)</li>
-        </ol>
-      </div>
-      <div class="prompt-box">
-        <b>Prompt ตัวอย่าง:</b><br>
-        <b>1) สร้างใบงานคณิตศาสตร์ ป.4 เรื่องเศษส่วน</b><br>
-        <span style="color:#2563eb;">“ช่วยออกใบงานคณิตศาสตร์สำหรับนักเรียน ป.4 เรื่อง เศษส่วน จำนวน 10 ข้อ พร้อมเฉลย”</span><br><br>
-        <b>2) แต่งนิทานสั้นสำหรับเด็กอนุบาล เรื่อง “การแบ่งปัน”</b><br>
-        <span style="color:#2563eb;">“แต่งนิทานสั้นสำหรับเด็กอนุบาล 1 หน้า เรื่อง การแบ่งปัน พร้อมข้อคิดท้ายเรื่อง”</span>
-      </div>
-      <div class="prompt-box best">
-        <b>Tips & Tricks:</b>
-        <ul>
-          <li>ขอ AI สร้างเฉลย พร้อมคำอธิบายเพิ่มเติม</li>
-          <li>อย่าลืมตรวจสอบเนื้อหาก่อนนำไปใช้ในห้องเรียน</li>
-          <li>แนะนำใช้ AI ในทางที่ปลอดภัยสำหรับเด็ก (อย่าใส่ข้อมูลส่วนตัว!)</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>3. สร้างนวัตกรรมในห้องเรียน</h2>
-      <div class="card">
-        <b>Workshop 2:</b>
-        <ol>
-          <li>ระดมสมอง “ปัญหา/โจทย์” ที่คุณครูเจอจริง</li>
-          <li>ช่วยกันออกแบบนวัตกรรมเล็ก ๆ ด้วย AI (สื่อ/กิจกรรม/ระบบช่วยสอน ฯลฯ)</li>
-          <li>Mini Pitching: นำเสนอแนวคิดแต่ละกลุ่ม</li>
-        </ol>
-      </div>
-      <div class="prompt-box">
-        <b>Prompt สำหรับระดมไอเดีย:</b>
-        <ul>
-          <li style="color:#2563eb;">“ช่วยคิดกิจกรรม STEM สนุก ๆ สำหรับเด็ก ป.6 ใช้อุปกรณ์ในห้องเรียน”</li>
-          <li style="color:#2563eb;">“ช่วยวางแผนบทเรียนภาษาอังกฤษใน 1 สัปดาห์ สำหรับ ป.3”</li>
-          <li style="color:#2563eb;">“ช่วยออกแบบเกมทบทวนความรู้เรื่องโลกและอวกาศสำหรับเด็ก”</li>
-        </ul>
-      </div>
-      <div class="prompt-box best">
-        <b>Best Practice:</b>
-        <ul>
-          <li>เริ่มจากปัญหาจริงของครู-นักเรียน แล้วใช้ AI เป็น “ตัวช่วย” ไม่ใช่ “ตัวแทน”</li>
-          <li>AI = ผู้ช่วย, ครู = ผู้นำชั้นเรียน!</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>4. รวมลิงก์สื่อ & แหล่งเรียนรู้ AI</h2>
-      <ul class="link-list">
-        <li>
-          <a href="https://ai4kids.aiat.or.th/" target="_blank">AI for Kids (AIAT)</a> — แหล่งเรียนรู้ AI สำหรับเด็กไทย
-        </li>
-        <li>
-          <a href="https://www.helloruby.com/" target="_blank">Hello Ruby</a> — เรียนรู้คอมพิวเตอร์/AI แบบนิทาน
-        </li>
-        <li>
-          <a href="https://www.learnai.today/" target="_blank">LearnAI.today</a> — บทเรียน AI ครูไทย
-        </li>
-        <li>
-          <a href="https://www.youtube.com/@aichanneltutor" target="_blank">YouTube: AI Channel Tutor</a> — คลิปการใช้ AI เพื่อครู
-        </li>
-        <li>
-          <a href="https://www.teachai.org/" target="_blank">TeachAI.org</a> — บทเรียนและแนวทางสอน AI ทั่วโลก
-        </li>
+    <nav>
+      <ul>
+        <li><a href="#section1">เปิดโลก AI</a></li>
+        <li><a href="#section2">เครื่องมือ AI</a></li>
+        <li><a href="#section3">Hands-on Workshop</a></li>
+        <li><a href="#section4">จริยธรรม AI</a></li>
+        <li><a href="#section5">นวัตกรรม</a></li>
+        <li><a href="#section6">แหล่งเรียนรู้</a></li>
       </ul>
-    </section>
+    </nav>
 
-    <section>
-      <h2>5. Feedback & ถาม-ตอบ</h2>
-      <div class="prompt-box">
-        <b>ฟอร์มประเมิน/Feedback หลังอบรม:</b><br>
-        <a class="btn-feedback" href="https://forms.gle/fMaWwsXK8EfGyFKy6" target="_blank">ส่ง Feedback คลิกที่นี่</a>
+    <main>
+      <section id="section1" class="section">
+        <h2><span class="section-number">1</span>เปิดโลก AI กับคุณครู</h2>
+        <div class="timer">⏱️ 60 นาที</div>
+        
+        <div class="activity-box">
+          <h3>🎯 Ice Breaking Activities</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>เกม AI Quiz (15 นาที)</h4>
+                <p>ใช้ Kahoot หรือ Mentimeter สร้างบรรยากาศสนุก</p>
+                <ul>
+                  <li>AI อยู่รอบตัวเราตรงไหนบ้าง?</li>
+                  <li>ข้อดี-ข้อเสียของ AI ในการศึกษา</li>
+                  <li>ความกังวลของครูเกี่ยวกับ AI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>คลิปแนะนำ AI (10 นาที)</h4>
+                <p><a href="https://youtu.be/wK6g6KkI_8c" target="_blank">AI คืออะไร? และมีผลต่อการศึกษาอย่างไร</a></p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Mini Discussion (35 นาที)</h4>
+                <p>แบ่งกลุ่มเล็ก ๆ พูดคุยประสบการณ์และความต้องการ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-box">
+          <h3>💡 คำถามสำหรับการพูดคุย</h3>
+          <ul>
+            <li>ครูเคยใช้ AI ในการสอนบ้างหรือไม่? อย่างไร?</li>
+            <li>ปัญหาที่เจอในการสอนปัจจุบัน AI ช่วยแก้ได้ไหม?</li>
+            <li>ความกังวลเกี่ยวกับ AI ในห้องเรียน</li>
+            <li>ความคาดหวังจากการอบรมวันนี้</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="section2" class="section">
+        <h2><span class="section-number">2</span>รู้จักเครื่องมือ AI สำหรับครู</h2>
+        <div class="timer">⏱️ 90 นาที</div>
+
+        <div class="tool-grid">
+          <div class="tool-card">
+            <h3>ChatGPT / Claude</h3>
+            <p>สร้างเนื้อหา, ใบงาน, แผนการสอน</p>
+            <a href="https://chat.openai.com/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+          <div class="tool-card">
+            <h3>Canva AI</h3>
+            <p>ออกแบบสื่อการสอน, โปสเตอร์</p>
+            <a href="https://www.canva.com/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+          <div class="tool-card">
+            <h3>Gamma</h3>
+            <p>สร้างงานนำเสนอ AI ภายใน 1 นาที</p>
+            <a href="https://gamma.app/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+          <div class="tool-card">
+            <h3>Quizizz AI</h3>
+            <p>สร้างแบบทดสอบจาก AI</p>
+            <a href="https://quizizz.com/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+        </div>
+
+        <div class="prompt-box">
+          <h3>🎯 Prompt Templates สำหรับครู</h3>
+          <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+            <h4>📝 สร้างแผนการสอน</h4>
+            <p style="color: #fff; background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 5px;">
+              "ช่วยสร้างแผนการสอน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] ระยะเวลา [จำนวนชั่วโมง] พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล"
+            </p>
+          </div>
+          <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+            <h4>📋 สร้างใบงาน</h4>
+            <p style="color: #fff; background: rgba(0,0,0,0.2); padding: 0.5rem; border-radius: 5px;">
+              "ช่วยสร้างใบงาน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] จำนวน [จำนวนข้อ] ระดับความยาก [ง่าย/ปานกลาง/ยาก] พร้อมเฉลยและคำอธิบาย"
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section3" class="section">
+        <h2><span class="section-number">3</span>Hands-on Workshop</h2>
+        <div class="timer">⏱️ 120 นาที</div>
+
+        <div class="activity-box">
+          <h3>🛠️ Workshop 1: สร้างสื่อการสอนด้วย AI (60 นาที)</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Step 1: เลือกหัวข้อ (10 นาที)</h4>
+                <p>แต่ละกลุ่มเลือกบทเรียนที่ต้องการสร้างสื่อ</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Step 2: ใช้ AI สร้างสื่อ (40 นาที)</h4>
+                <ul>
+                  <li>สร้างใบงาน/แบบทดสอบ (ChatGPT)</li>
+                  <li>ออกแบบสื่อสอน (Canva AI)</li>
+                  <li>สร้างเกมทบทวน (Kahoot)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Step 3: นำเสนอผลงาน (10 นาที)</h4>
+                <p>แต่ละกลุ่มแชร์ผลงานและเทคนิคที่ใช้</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-box">
+          <h3>🧪 Workshop 2: แก้ปัญหาการสอนด้วย AI (60 นาที)</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>ปัญหาที่พบบ่อย</h4>
+                <ul>
+                  <li>นักเรียนไม่สนใจเรียน</li>
+                  <li>เนื้อหายากเกินไป</li>
+                  <li>ไม่มีเวลาเตรียมสื่อ</li>
+                  <li>ความแตกต่างของผู้เรียน</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>แนวทางแก้ไขด้วย AI</h4>
+                <ul>
+                  <li>สร้างเกม/กิจกรรมสนุก</li>
+                  <li>ปรับระดับความยาก</li>
+                  <li>สร้างสื่อรวดเร็ว</li>
+                  <li>ส่วนตัวเพื่อผู้เรียน</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section4" class="section">
+        <h2><span class="section-number">4</span>จริยธรรม AI ในการศึกษา</h2>
+        <div class="timer">⏱️ 45 นาที</div>
+
+        <div class="warning-box">
+          <h3>⚠️ ข้อควรระวัง</h3>
+          <ul>
+            <li>ไม่ใส่ข้อมูลส่วนตัวของนักเรียนใน AI</li>
+            <li>ตรวจสอบความถูกต้องของเนื้อหาก่อนใช้</li>
+            <li>ไม่ให้ AI ทำแทนทุกอย่าง ครูยังคงเป็นตัวหลัก</li>
+            <li>สอนนักเรียนใช้ AI อย่างรับผิดชอบ</li>
+          </ul>
+        </div>
+
+        <div class="best-practice">
+          <h3>✅ Best Practices</h3>
+          <ul>
+            <li>ใช้ AI เป็นเครื่องมือช่วย ไม่ใช่ทดแทน</li>
+            <li>สอนให้นักเรียนคิดวิเคราะห์ก่อนใช้ AI</li>
+            <li>เน้นการเรียนรู้ร่วมกันระหว่างครูและ AI</li>
+            <li>อัพเดทความรู้เกี่ยวกับ AI อย่างต่อเนื่อง</li>
+          </ul>
+        </div>
+
+        <div class="prompt-box">
+          <h3>📋 Guidelines การใช้ AI ในห้องเรียน</h3>
+          <ol>
+            <li>อธิบายให้นักเรียนรู้ว่าเนื้อหาใดมาจาก AI</li>
+            <li>ให้นักเรียนมีส่วนร่วมในการตรวจสอบข้อมูล</li>
+            <li>เน้นให้นักเรียนคิดเป็น ไม่ใช่ท่องจำ</li>
+            <li>สร้างกฎการใช้ AI ในห้องเรียน</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="section5" class="section">
+        <h2><span class="section-number">5</span>สร้างนวัตกรรมในห้องเรียน</h2>
+        <div class="timer">⏱️ 60 นาที</div>
+
+        <div class="activity-box">
+          <h3>🚀 Design Thinking Workshop</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Empathize (10 นาที)</h4>
+                <p>ทำความเข้าใจปัญหาของนักเรียน</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Define (10 นาที)</h4>
+                <p>กำหนดปัญหาที่จะแก้ไขด้วย AI</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Ideate (20 นาที)</h4>
+                <p>ระดมไอเดียแนวทางแก้ไขด้วย AI</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Prototype (15 นาที)</h4>
+                <p>สร้างต้นแบบหรือ mockup</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Test & Present (5 นาที)</h4>
+                <p>ทดสอบและนำเสนอไอเดีย</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-box">
+          <h3>💡 ไอเดีย AI Innovation</h3>
+          <div class="tool-grid">
+            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+              <h4>🎮 Gamification</h4>
+              <p>ใช้ AI สร้างเกมเพื่อการเรียนรู้</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+              <h4>📱 Personalized Learning</h4>
+              <p>ปรับการสอนตามความสามารถเฉพาะ</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px;">
+              <h4>🤖 AI Assistant</h4>
+              <p>ผู้ช่วยสอน AI สำหรับนักเรียน</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section6" class="section">
+        <h2><span class="section-number">6</span>แหล่งเรียนรู้และทรัพยากร AI</h2>
+        <div class="timer">⏱️ 30 นาที</div>
+
+        <div class="resource-grid">
+          <div class="resource-card">
+            <h3>🇹🇭 แหล่งเรียนรู้ภาษาไทย</h3>
+            <ul style="text-align: left;">
+              <li><a href="https://ai4kids.aiat.or.th/" target="_blank">AI for Kids (AIAT)</a></li>
+              <li><a href="https://www.learnai.today/" target="_blank">LearnAI.today</a></li>
+              <li><a href="https://www.youtube.com/@aichanneltutor" target="_blank">AI Channel Tutor</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <h3>🌍 แหล่งเรียนรู้สากล</h3>
+            <ul style="text-align: left;">
+              <li><a href="https://www.teachai.org/" target="_blank">TeachAI.org</a></li>
+              <li><a href="https://www.helloruby.com/" target="_blank">Hello Ruby</a></li>
+              <li><a href="https://www.coursera.org/specializations/ai-for-everyone" target="_blank">AI for Everyone (Coursera)</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <h3>🛠️ เครื่องมือเพิ่มเติม</h3>
+            <ul style="text-align: left;">
+              <li><a href="https://www.flippity.net/" target="_blank">Flippity</a></li>
+              <li><a href="https://www.padlet.com/" target="_blank">Padlet</a></li>
+              <li><a href="https://www.mentimeter.com/" target="_blank">Mentimeter</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <h3>📚 หนังสือแนะนำ</h3>
+            <ul style="text-align: left;">
+              <li>AI สำหรับครู - ดร.วีระชัย</li>
+              <li>การศึกษายุค AI - ผศ.สมชาย</li>
+              <li>Teaching in the Age of AI</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="best-practice">
+          <h3>🎯 แผนพัฒนาต่อยอด (90 วัน)</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>สัปดาห์ที่ 1-2: ทดลองใช้เครื่องมือพื้นฐาน</h4>
+                <ul>
+                  <li>ใช้ ChatGPT สร้างใบงาน 1 ใบต่อสัปดาห์</li>
+                  <li>ทดลอง Canva AI สร้างสื่อ</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>สัปดาห์ที่ 3-4: พัฒนาทักษะขั้นสูง</h4>
+                <ul>
+                  <li>เรียนรู้ Prompt Engineering</li>
+                  <li>สร้างแผนการสอนด้วย AI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>เดือนที่ 2-3: นำไปใช้จริงและพัฒนา</h4>
+                <ul>
+                  <li>ใช้ AI ในห้องเรียนจริง</li>
+                  <li>สร้างนวัตกรรมการสอน</li>
+                  <li>แชร์ประสบการณ์กับเพื่อนครู</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="section-number">7</span>การประเมินผลและ Follow-up</h2>
+        <div class="timer">⏱️ 15 นาที</div>
+
+        <div class="feedback-section">
+          <h3>📝 ประเมินผลการอบรม</h3>
+          <p>กรุณาแบ่งปันประสบการณ์และข้อเสนอแนะเพื่อพัฒนาการอบรมครั้งต่อไป</p>
+          <a href="https://forms.gle/fMaWwsXK8EfGyFKy6" target="_blank" class="btn">ส่ง Feedback</a>
+          <a href="https://lin.ee/ejtvVyu" target="_blank" class="btn btn-secondary">เข้าร่วมกลุ่ม LINE</a>
+        </div>
+
+        <div class="success-box">
+          <h3>🎉 ขั้นตอนต่อไป</h3>
+          <ul>
+            <li>📲 เข้าร่วมกลุ่ม LINE "ครู AI Starter" เพื่อแลกเปลี่ยนประสบการณ์</li>
+            <li>📅 ติดตามการอบรมต่อเนื่อง (Advanced Workshop)</li>
+            <li>🏆 ส่งผลงาน AI เข้าประกวด "นวัตกรรมการศึกษาด้วย AI"</li>
+            <li>👥 สร้างชุมชนครู AI ในโรงเรียน</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h3>📞 ติดต่อและสนับสนุน</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0;">
+          <div>
+            <h4>📧 Email Support</h4>
+            <p>support@ai-teacher-kit.com</p>
+          </div>
+          <div>
+            <h4>💬 LINE Official</h4>
+            <p><a href="https://lin.ee/ejtvVyu" target="_blank" style="color: #4ade80;">@AITeacherTH</a></p>
+          </div>
+          <div>
+            <h4>🌐 Website</h4>
+            <p><a href="https://ai-teacher-kit.com" target="_blank" style="color: #4ade80;">ai-teacher-kit.com</a></p>
+          </div>
+        </div>
+        <div style="border-top: 1px solid #4a5568; padding-top: 2rem; margin-top: 2rem;">
+          <p>&copy; 2025 AI Starter Kit for Teachers • Design by <strong>WD connect x ที่รัก</strong></p>
+          <p style="font-size: 0.9rem; opacity: 0.8;">
+            พัฒนาด้วยใจเพื่อครูไทย | เวอร์ชัน 2.0 Enhanced
+          </p>
+        </div>
       </div>
-      <div class="card" style="background:#fffbe2;">
-        <b>สงสัยอะไร? แชร์เทคนิค-ไอเดียเพิ่มเติม ได้ที่ <a href="https://lin.ee/ejtvVyu" target="_blank">LINE ครู AI Starter</a></b>
-      </div>
-    </section>
-  </main>
-  <div style="text-align:center;font-size:0.96rem;color:#999;margin:2.2rem 0 1.3rem 0;">
-    &copy; 2025 AI Starter Kit for Teachers • Design by <b>WD connect x ที่รัก</b>
+    </footer>
   </div>
+
+  <script>
+    // เพิ่ม Smooth Scrolling สำหรับ Navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Progress Bar Animation
+    function updateProgress() {
+      const sections = document.querySelectorAll('.section');
+      const progress = document.querySelector('.progress-fill');
+      if (progress) {
+        const scrolled = window.pageYOffset;
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const progressPercent = (scrolled / totalHeight) * 100;
+        progress.style.width = progressPercent + '%';
+      }
+    }
+
+    window.addEventListener('scroll', updateProgress);
+
+    // Highlight current section in navigation
+    function highlightCurrentSection() {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('nav a');
+      
+      let currentSection = '';
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100) {
+          currentSection = '#' + section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.style.background = '';
+        if (link.getAttribute('href') === currentSection) {
+          link.style.background = '#667eea';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightCurrentSection);
+
+    // Add click animations
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        let ripple = document.createElement('span');
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255,255,255,0.6)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s linear';
+        ripple.style.left = (e.clientX - e.target.offsetLeft) + 'px';
+        ripple.style.top = (e.clientY - e.target.offsetTop) + 'px';
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  </script>
+
+  <style>
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  </style>
 </body>
 </html>
