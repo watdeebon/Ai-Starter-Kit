@@ -1,0 +1,2180 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Starter Kit สำหรับครูยุคใหม่ - Enhanced with LINE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- LINE LIFF SDK -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <link rel="stylesheet" href="#styles">
+</head>
+<body>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toast-message"></span>
+  </div>
+
+  <div class="container">
+    <header>
+      <img src="https://raw.githubusercontent.com/watdeebon/LineBot/refs/heads/main/logo-BotWDB.png" alt="AI Starter Kit">
+      <h1>AI Starter Kit</h1>
+      <div class="subtitle">สำหรับครูยุคใหม่: สร้างสรรค์การเรียนรู้ด้วยปัญญาประดิษฐ์</div>
+      
+      <!-- LINE Profile Section -->
+      <div id="line-profile" class="line-profile">
+        <!-- Login Button (แสดงเมื่อยังไม่ได้ login) -->
+        <button id="login-btn" class="line-login-btn" style="display: none;">
+          <svg class="line-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.02-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55z"/>
+          </svg>
+          เข้าสู่ระบบด้วย LINE
+        </button>
+        
+        <!-- User Profile (แสดงเมื่อ login แล้ว) -->
+        <div id="user-profile" class="user-profile" style="display: none;">
+          <img id="user-avatar" class="user-avatar" src="" alt="Profile">
+          <div class="user-info">
+            <span id="user-name" class="user-name"></span>
+            <button id="logout-btn" class="logout-btn">ออกจากระบบ</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="course-info">
+        <strong>หลักสูตรอบรม 1 วัน (6 ชั่วโมง)</strong><br>
+        "AI สำหรับครูยุคใหม่: สร้างสรรค์การเรียนรู้อย่างสร้างสรรค์ด้วยปัญญาประดิษฐ์"
+        <div class="line-feature-note">
+          💡 <span id="line-feature-status">กำลังเช็คสถานะ LINE...</span>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#section1">เปิดโลก AI</a></li>
+        <li><a href="#section2">เครื่องมือ AI</a></li>
+        <li><a href="#section3">Workshop</a></li>
+        <li><a href="#section4">จริยธรรม AI</a></li>
+        <li><a href="#section5">Prompts</a></li>
+        <li><a href="#section6">แหล่งเรียนรู้</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="section1" class="section">
+        <div class="section-header">
+          <h2><span class="section-number">1</span>เปิดโลก AI กับคุณครู</h2>
+          <button class="share-btn" data-section="section1" title="แชร์ส่วนนี้ผ่าน LINE">
+            <svg class="share-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            แชร์ผ่าน LINE
+          </button>
+        </div>
+        <div class="timer">⏱️ 60 นาที</div>
+        
+        <div class="activity-box">
+          <h3>🎯 Ice Breaking Activities</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>เกม AI Quiz (15 นาที)</h4>
+                <p>ใช้ Kahoot หรือ Mentimeter สร้างบรรยากาศสนุก</p>
+                <p><a href="https://liff.line.me/2007750782-NE3KqA8Y" target="_blank" class="game-link">🎮 เล่นเกม AI Quiz ใน LINE</a></p>
+                <ul>
+                  <li>AI อยู่รอบตัวเราตรงไหนบ้าง?</li>
+                  <li>ข้อดี-ข้อเสียของ AI ในการศึกษา</li>
+                  <li>ความกังวลของครูเกี่ยวกับ AI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>คลิปแนะนำ AI (10 นาที)</h4>
+                <p><a href="https://youtu.be/wK6g6KkI_8c" target="_blank">AI คืออะไร? และมีผลต่อการศึกษาอย่างไร</a></p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Mini Discussion (35 นาที)</h4>
+                <p>แบ่งกลุ่มเล็ก ๆ พูดคุยประสบการณ์และความต้องการ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="discussion-box">
+          <h3>💡 คำถามสำหรับการพูดคุย</h3>
+          <ul>
+            <li>ครูเคยใช้ AI ในการสอนบ้างหรือไม่? อย่างไร?</li>
+            <li>ปัญหาที่เจอในการสอนปัจจุบัน AI ช่วยแก้ได้ไหม?</li>
+            <li>ความกังวลเกี่ยวกับ AI ในห้องเรียน</li>
+            <li>ความคาดหวังจากการอบรมวันนี้</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="section2" class="section">
+        <div class="section-header">
+          <h2><span class="section-number">2</span>รู้จักเครื่องมือ AI สำหรับครู</h2>
+          <button class="share-btn" data-section="section2" title="แชร์ส่วนนี้ผ่าน LINE">
+            <svg class="share-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            แชร์ผ่าน LINE
+          </button>
+        </div>
+        <div class="timer">⏱️ 90 นาที</div>
+
+        <div class="tool-grid">
+          <div class="tool-card">
+            <h3>ChatGPT / Claude</h3>
+            <p>สร้างเนื้อหา, ใบงาน, แผนการสอน</p>
+            <a href="https://chat.openai.com/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+          <div class="tool-card">
+            <h3>Canva AI</h3>
+            <p>ออกแบบสื่อการสอน, โปสเตอร์</p>
+            <a href="https://www.canva.com/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+          <div class="tool-card">
+            <h3>Gamma</h3>
+            <p>สร้างงานนำเสนอ AI ภายใน 1 นาที</p>
+            <a href="https://gamma.app/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+          <div class="tool-card">
+            <h3>Quizizz AI</h3>
+            <p>สร้างแบบทดสอบจาก AI</p>
+            <a href="https://quizizz.com/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="section3" class="section">
+        <div class="section-header">
+          <h2><span class="section-number">3</span>Hands-on Workshop</h2>
+          <button class="share-btn" data-section="section3" title="แชร์ส่วนนี้ผ่าน LINE">
+            <svg class="share-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            แชร์ผ่าน LINE
+          </button>
+        </div>
+        <div class="timer">⏱️ 120 นาที</div>
+
+        <div class="workshop-box">
+          <h3>🛠️ Workshop 1: สร้างสื่อการสอนด้วย AI (60 นาที)</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Step 1: เลือกหัวข้อ (10 นาที)</h4>
+                <p>แต่ละกลุ่มเลือกบทเรียนที่ต้องการสร้างสื่อ</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Step 2: ใช้ AI สร้างสื่อ (40 นาที)</h4>
+                <ul>
+                  <li>สร้างใบงาน/แบบทดสอบ (ChatGPT)</li>
+                  <li>ออกแบบสื่อสอน (Canva AI)</li>
+                  <li>สร้างเกมทบทวน (Kahoot)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Step 3: นำเสนอผลงาน (10 นาที)</h4>
+                <p>แต่ละกลุ่มแชร์ผลงานและเทคนิคที่ใช้</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="workshop-box">
+          <h3>🧪 Workshop 2: แก้ปัญหาการสอนด้วย AI (60 นาที)</h3>
+          <div class="problem-solution">
+            <div class="problem-column">
+              <h4>❌ ปัญหาที่พบบ่อย</h4>
+              <ul>
+                <li>นักเรียนไม่สนใจเรียน</li>
+                <li>เนื้อหายากเกินไป</li>
+                <li>ไม่มีเวลาเตรียมสื่อ</li>
+                <li>ความแตกต่างของผู้เรียน</li>
+              </ul>
+            </div>
+            <div class="solution-column">
+              <h4>✅ แนวทางแก้ไขด้วย AI</h4>
+              <ul>
+                <li>สร้างเกม/กิจกรรมสนุก</li>
+                <li>ปรับระดับความยาก</li>
+                <li>สร้างสื่อรวดเร็ว</li>
+                <li>ส่วนตัวเพื่อผู้เรียน</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section4" class="section">
+        <div class="section-header">
+          <h2><span class="section-number">4</span>จริยธรรม AI ในการศึกษา</h2>
+          <button class="share-btn" data-section="section4" title="แชร์ส่วนนี้ผ่าน LINE">
+            <svg class="share-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            แชร์ผ่าน LINE
+          </button>
+        </div>
+        <div class="timer">⏱️ 45 นาที</div>
+
+        <div class="warning-box">
+          <h3>⚠️ ข้อควรระวัง</h3>
+          <ul>
+            <li>ไม่ใส่ข้อมูลส่วนตัวของนักเรียนใน AI</li>
+            <li>ตรวจสอบความถูกต้องของเนื้อหาก่อนใช้</li>
+            <li>ไม่ให้ AI ทำแทนทุกอย่าง ครูยังคงเป็นตัวหลัก</li>
+            <li>สอนนักเรียนใช้ AI อย่างรับผิดชอบ</li>
+          </ul>
+        </div>
+
+        <div class="best-practice">
+          <h3>✅ Best Practices</h3>
+          <ul>
+            <li>ใช้ AI เป็นเครื่องมือช่วย ไม่ใช่ทดแทน</li>
+            <li>สอนให้นักเรียนคิดวิเคราะห์ก่อนใช้ AI</li>
+            <li>เน้นการเรียนรู้ร่วมกันระหว่างครูและ AI</li>
+            <li>อัพเดทความรู้เกี่ยวกับ AI อย่างต่อเนื่อง</li>
+          </ul>
+        </div>
+
+        <div class="guidelines-box">
+          <h3>📋 Guidelines การใช้ AI ในห้องเรียน</h3>
+          <ol>
+            <li>อธิบายให้นักเรียนรู้ว่าเนื้อหาใดมาจาก AI</li>
+            <li>ให้นักเรียนมีส่วนร่วมในการตรวจสอบข้อมูล</li>
+            <li>เน้นให้นักเรียนคิดเป็น ไม่ใช่ท่องจำ</li>
+            <li>สร้างกฎการใช้ AI ในห้องเรียน</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="section5" class="section">
+        <div class="section-header">
+          <h2><span class="section-number">5</span>ตัวอย่าง Prompts สำหรับครู</h2>
+          <button class="share-btn" data-section="section5" title="แชร์ส่วนนี้ผ่าน LINE">
+            <svg class="share-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            แชร์ผ่าน LINE
+          </button>
+        </div>
+        <div class="timer">⏱️ 60 นาที</div>
+
+        <div class="prompt-category">
+          <h3>📝 สร้างแผนการสอน</h3>
+          <div class="prompt-example">
+            <h4>Prompt พื้นฐาน:</h4>
+            <div class="prompt-text">
+              "ช่วยสร้างแผนการสอน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] ระยะเวลา [จำนวนชั่วโมง] พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล"
+            </div>
+            <h4>ตัวอย่างจริง:</h4>
+            <div class="prompt-text example">
+              "ช่วยสร้างแผนการสอนคณิตศาสตร์ สำหรับป.4 เรื่องเศษส่วน ระยะเวลา 3 ชั่วโมง พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล รวมถึงเกมสนุกๆ ที่เด็กจะเข้าใจง่าย"
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-category">
+          <h3>📋 สร้างใบงาน/แบบทดสอบ</h3>
+          <div class="prompt-example">
+            <h4>Prompt พื้นฐาน:</h4>
+            <div class="prompt-text">
+              "ช่วยสร้างใบงาน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] จำนวน [จำนวนข้อ] ระดับความยาก [ง่าย/ปานกลาง/ยาก] พร้อมเฉลยและคำอธิบาย"
+            </div>
+            <h4>ตัวอย่างจริง:</h4>
+            <div class="prompt-text example">
+              "สร้างใบงานภาษาไทย สำหรับ ป.3 เรื่องคำราชาศัพท์ จำนวน 15 ข้อ ระดับความยากปานกลาง พร้อมเฉลยและคำอธิบายความหมาย มีรูปภาพประกอบ"
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-category">
+          <h3>🤖 ใช้กับ NotebookLM</h3>
+          <div class="prompt-example">
+            <h4>การใช้งานกับ Google NotebookLM:</h4>
+            <div class="prompt-text">
+              "อัปโหลดเอกสารหลักสูตร/ตำรา แล้วใช้ Prompt: 'สร้างคำถามทบทวนจากเนื้อหานี้สำหรับ [ระดับชั้น] พร้อมเฉลยและคำอธิบาย 15 ข้อ'"
+            </div>
+            <div class="prompt-text example">
+              <strong>ลิงก์:</strong> <a href="https://notebooklm.google/" target="_blank" class="notebooklm-link">https://notebooklm.google/</a><br>
+              <strong>ตัวอย่าง:</strong> "วิเคราะห์เอกสารนี้และสร้าง Mind Map สำหรับสอนเรื่องระบบย่อยอาหารให้นักเรียน ม.2 พร้อมกิจกรรมการเรียนรู้ที่น่าสนใจ"
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-category">
+          <h3>📖 สร้างเนื้อหาการสอน</h3>
+          <div class="prompt-example">
+            <h4>นิทานเพื่อการเรียนรู้:</h4>
+            <div class="prompt-text">
+              "แต่งนิทานสั้นสำหรับเด็ก [ระดับชั้น] เรื่อง [หัวข้อ] ความยาว [จำนวนหน้า] พร้อมข้อคิดท้ายเรื่อง และคำถามทบทวน"
+            </div>
+            <div class="prompt-text example">
+              "แต่งนิทานสั้นสำหรับเด็กอนุบาล เรื่องการแบ่งปัน ความยาว 1 หน้า พร้อมข้อคิดท้ายเรื่อง และคำถามทบทวน 3 ข้อ ใช้ภาษาง่ายๆ"
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-category">
+          <h3>🎮 สร้างกิจกรรม/เกม</h3>
+          <div class="prompt-example">
+            <h4>เกมการเรียนรู้:</h4>
+            <div class="prompt-text">
+              "ช่วยคิดเกม/กิจกรรมสนุกๆ สำหรับสอน [หัวข้อ] ให้ [ระดับชั้น] ใช้อุปกรณ์ [ระบุอุปกรณ์] ระยะเวลา [นาที] และวิธีการประเมิน"
+            </div>
+            <div class="prompt-text example">
+              "ช่วยคิดเกมสนุกๆ สำหรับสอนวิทยาศาสตร์เรื่องระบบสุริยะ ให้ป.6 ใช้อุปกรณ์ในห้องเรียนทั่วไป ระยะเวลา 30 นาที และวิธีการประเมินความเข้าใจ"
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-category">
+          <h3>🔄 ปรับเนื้อหาตามระดับ</h3>
+          <div class="prompt-example">
+            <h4>Differentiated Learning:</h4>
+            <div class="prompt-text">
+              "ช่วยปรับเนื้อหาเรื่อง [หัวข้อ] ให้เหมาะกับนักเรียน 3 ระดับ: เก่ง ปานกลาง และอ่อน สำหรับ [ระดับชั้น] พร้อมกิจกรรมแยกตามความสามารถ"
+            </div>
+            <div class="prompt-text example">
+              "ช่วยปรับเนื้อหาเรื่องการคูณ ให้เหมาะกับนักเรียน 3 ระดับ: เก่ง ปานกลาง และอ่อน สำหรับ ป.3 พร้อมกิจกรรมแยกตามความสามารถ และเทคนิคช่วยจำ"
+            </div>
+          </div>
+        </div>
+
+        <div class="prompt-category">
+          <h3>🎯 ประเมินและวัดผล</h3>
+          <div class="prompt-example">
+            <h4>Rubric ประเมิน:</h4>
+            <div class="prompt-text">
+              "สร้าง Rubric ประเมิน [กิจกรรม/ผลงาน] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] แบ่งเป็น 4 ระดับ พร้อมเกณฑ์ชัดเจน"
+            </div>
+            <div class="prompt-text example">
+              "สร้าง Rubric ประเมินการนำเสนอโครงงานวิทยาศาสตร์ สำหรับ ม.3 เรื่องพลังงานทดแทน แบ่งเป็น 4 ระดับ พร้อมเกณฑ์ชัดเจนในด้านเนื้อหา การนำเสนอ และความคิดสร้างสรรค์"
+            </div>
+          </div>
+        </div>
+
+        <div class="tips-box">
+          <h3>💡 เทคนิค Prompt ที่ดี</h3>
+          <ul>
+            <li><strong>ระบุรายละเอียดชัดเจน:</strong> วิชา, ระดับชั้น, หัวข้อ, เวลา</li>
+            <li><strong>ใส่บริบท:</strong> ความสามารถนักเรียน, สภาพห้องเรียน</li>
+            <li><strong>กำหนดรูปแบบผลลัพธ์:</strong> ต้องการตาราง, รายการ, หรือย่อหน้า</li>
+            <li><strong>ขอตัวอย่างเพิ่ม:</strong> "ให้ตัวอย่าง 3 แบบที่แตกต่างกัน"</li>
+            <li><strong>ขอคำอธิบาย:</strong> "พร้อมคำอธิบายวิธีใช้"</li>
+            <li><strong>แชร์ Prompt ผ่าน LINE:</strong> สามารถแชร์ Prompt ที่ใช้ได้ผลดีให้เพื่อนครูผ่าน LINE ได้ทันที</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="section6" class="section">
+        <div class="section-header">
+          <h2><span class="section-number">6</span>แหล่งเรียนรู้และทรัพยากร</h2>
+          <button class="share-btn" data-section="section6" title="แชร์ส่วนนี้ผ่าน LINE">
+            <svg class="share-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            แชร์ผ่าน LINE
+          </button>
+        </div>
+        <div class="timer">⏱️ 30 นาที</div>
+
+        <div class="resource-grid">
+          <div class="resource-card">
+            <h3>🇹🇭 แหล่งเรียนรู้ภาษาไทย</h3>
+            <ul>
+              <li><a href="https://ai4kids.aiat.or.th/" target="_blank">AI for Kids (AIAT)</a></li>
+              <li><a href="https://www.learnai.today/" target="_blank">LearnAI.today</a></li>
+              <li><a href="https://www.youtube.com/@aichanneltutor" target="_blank">AI Channel Tutor</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <h3>🌍 แหล่งเรียนรู้สากล</h3>
+            <ul>
+              <li><a href="https://www.teachai.org/" target="_blank">TeachAI.org</a></li>
+              <li><a href="https://www.helloruby.com/" target="_blank">Hello Ruby</a></li>
+              <li><a href="https://www.coursera.org/specializations/ai-for-everyone" target="_blank">AI for Everyone (Coursera)</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <h3>🛠️ เครื่องมือเพิ่มเติม</h3>
+            <ul>
+              <li><a href="https://www.flippity.net/" target="_blank">Flippity</a></li>
+              <li><a href="https://www.padlet.com/" target="_blank">Padlet</a></li>
+              <li><a href="https://www.mentimeter.com/" target="_blank">Mentimeter</a></li>
+              <li><a href="https://notebooklm.google/" target="_blank">Google NotebookLM</a></li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <h3>📚 หนังสือแนะนำ</h3>
+            <ul>
+              <li>AI สำหรับครู - ดร.วีระชัย</li>
+              <li>การศึกษายุค AI - ผศ.สมชาย</li>
+              <li>Teaching in the Age of AI</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-box">
+          <h3>🎯 แผนพัฒนาต่อยอด (90 วัน)</h3>
+          <div class="roadmap">
+            <div class="roadmap-item">
+              <div class="roadmap-week">สัปดาห์ 1-2</div>
+              <div class="roadmap-content">
+                <h4>ทดลองใช้เครื่องมือพื้นฐาน</h4>
+                <ul>
+                  <li>ใช้ ChatGPT สร้างใบงาน 1 ใบต่อสัปดาห์</li>
+                  <li>ทดลอง Canva AI สร้างสื่อ</li>
+                </ul>
+              </div>
+            </div>
+            <div class="roadmap-item">
+              <div class="roadmap-week">สัปดาห์ 3-4</div>
+              <div class="roadmap-content">
+                <h4>พัฒนาทักษะขั้นสูง</h4>
+                <ul>
+                  <li>เรียนรู้ Prompt Engineering</li>
+                  <li>สร้างแผนการสอนด้วย AI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="roadmap-item">
+              <div class="roadmap-week">เดือน 2-3</div>
+              <div class="roadmap-content">
+                <h4>นำไปใช้จริงและพัฒนา</h4>
+                <ul>
+                  <li>ใช้ AI ในห้องเรียนจริง</li>
+                  <li>สร้างนวัตกรรมการสอน</li>
+                  <li>แชร์ประสบการณ์กับเพื่อนครูผ่าน LINE</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><span class="section-number">7</span>การประเมินผลและ Follow-up</h2>
+        <div class="timer">⏱️ 15 นาที</div>
+
+        <div class="feedback-section">
+          <h3>📝 ประเมินผลการอบรม</h3>
+          <p>กรุณาแบ่งปันประสบการณ์และข้อเสนอแนะเพื่อพัฒนาการอบรมครั้งต่อไป</p>
+          <a href="https://forms.gle/fMaWwsXK8EfGyFKy6" target="_blank" class="btn">ส่ง Feedback</a>
+          <a href="https://lin.ee/ejtvVyu" target="_blank" class="btn btn-secondary">เข้าร่วมกลุ่ม LINE</a>
+        </div>
+
+        <div class="next-steps">
+          <h3>🎉 ขั้นตอนต่อไป</h3>
+          <ul>
+            <li>📲 เข้าร่วมกลุ่ม LINE "ครู AI Starter" เพื่อแลกเปลี่ยนประสบการณ์</li>
+            <li>📅 ติดตามการอบรมต่อเนื่อง (Advanced Workshop)</li>
+            <li>🏆 ส่งผลงาน AI เข้าประกวด "นวัตกรรมการศึกษาด้วย AI"</li>
+            <li>👥 สร้างชุมชนครู AI ในโรงเรียน</li>
+            <li>📤 แชร์ประสบการณ์และ Prompt ที่ใช้ได้ผลดีผ่าน LINE</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <h3>📞 ติดต่อและสนับสนุน</h3>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <h4>📧 Email Support</h4>
+            <p>support@ai-teacher-kit.com</p>
+          </div>
+          <div class="contact-item">
+            <h4>💬 LINE Official</h4>
+            <p><a href="https://lin.ee/ejtvVyu" target="_blank">@AITeacherTH</a></p>
+          </div>
+          <div class="contact-item">
+            <h4>🌐 Website</h4>
+            <p><a href="https://ai-teacher-kit.com" target="_blank">ai-teacher-kit.com</a></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 AI Starter Kit for Teachers • Design by <strong>WD connect x ที่รัก</strong></p>
+          <p>พัฒนาด้วยใจเพื่อครูไทย | เวอร์ชัน 2.1 Enhanced with LINE Integration</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- CSS Styles -->
+  <style id="styles">
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #2d3748;
+      font-family: 'Prompt', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #ffffff;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    
+    /* Toast Notification Styles */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #48bb78;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      font-weight: 500;
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+    }
+    
+    .toast.error {
+      background: #e53e3e;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      color: #ffffff;
+    }
+    
+    header img {
+      height: 80px;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    header .subtitle {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+      opacity: 0.95;
+    }
+    
+    /* LINE Profile Section */
+    .line-profile {
+      margin: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .line-login-btn {
+      background: #00B900;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      font-family: 'Prompt', sans-serif;
+    }
+    
+    .line-login-btn:hover {
+      background: #009900;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,185,0,0.3);
+    }
+    
+    .line-icon {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.15);
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .user-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .user-name {
+      font-weight: 600;
+      color: white;
+    }
+    
+    .logout-btn {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Prompt', sans-serif;
+    }
+    
+    .logout-btn:hover {
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    
+    .course-info {
+      background: rgba(255,255,255,0.15);
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      margin-top: 1.5rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .line-feature-note {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    /* Navigation */
+    nav {
+      background: #2d3748;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    nav a:hover {
+      background: #667eea;
+      transform: translateY(-2px);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      padding: 2rem;
+      border-left: 6px solid #667eea;
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .section h2 {
+      margin: 0;
+      color: #667eea;
+      font-size: 2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+    }
+    
+    .section-number {
+      background: #667eea;
+      color: #ffffff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    
+    /* Share Button Styles */
+    .share-btn {
+      background: #00B900;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      font-family: 'Prompt', sans-serif;
+      white-space: nowrap;
+    }
+    
+    .share-btn:hover:not(:disabled) {
+      background: #009900;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,185,0,0.3);
+    }
+    
+    .share-btn:disabled {
+      background: #a0aec0;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .share-icon {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .timer {
+      display: inline-block;
+      background: #e53e3e;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Activity Boxes */
+    .activity-box {
+      background: #f7fafc;
+      border: 2px solid #e2e8f0;
+      border-left: 6px solid #f093fb;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+    
+    .activity-box h3 {
+      color: #2d3748;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .discussion-box {
+      background: #ebf8ff;
+      border: 2px solid #bee3f8;
+      border-left: 6px solid #4299e1;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+    
+    .discussion-box h3 {
+      color: #2b6cb0;
+      margin-bottom: 1rem;
+    }
+    
+    .workshop-box {
+      background: #f0fff4;
+      border: 2px solid #c6f6d5;
+      border-left: 6px solid #48bb78;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+    
+    .workshop-box h3 {
+      color: #2f855a;
+      margin-bottom: 1rem;
+    }
+    
+    .warning-box {
+      background: #fed7d7;
+      border: 2px solid #fc8181;
+      border-left: 6px solid #e53e3e;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+    
+    .warning-box h3 {
+      color: #742a2a;
+      margin-bottom: 1rem;
+    }
+    
+    .best-practice {
+      background: #c6f6d5;
+      border: 2px solid #68d391;
+      border-left: 6px solid #38a169;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+    
+    .best-practice h3 {
+      color: #22543d;
+      margin-bottom: 1rem;
+    }
+    
+    .guidelines-box {
+      background: #edf2f7;
+      border: 2px solid #cbd5e0;
+      border-left: 6px solid #4a5568;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+    
+    .guidelines-box h3 {
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
+    
+    /* Game Link Styles */
+    .game-link {
+      display: inline-block;
+      background: #00B900;
+      color: white !important;
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0.5rem 0;
+      transition: all 0.3s ease;
+    }
+    
+    .game-link:hover {
+      background: #009900;
+      transform: translateY(-1px);
+    }
+    
+    /* NotebookLM Link Styles */
+    .notebooklm-link {
+      color: #667eea !important;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    
+    .notebooklm-link:hover {
+      color: #5a67d8 !important;
+    }
+    
+    /* Prompt Styles */
+    .prompt-category {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .prompt-category h3 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+    
+    .prompt-example {
+      margin: 1rem 0;
+    }
+    
+    .prompt-example h4 {
+      color: #4a5568;
+      margin: 1rem 0 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .prompt-text {
+      background: #edf2f7;
+      border-left: 4px solid #667eea;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      font-family: 'Prompt', sans-serif;
+      color: #2d3748;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .prompt-text:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+    
+    .prompt-text.example {
+      background: #f0fff4;
+      border-left-color: #38a169;
+      color: #22543d;
+    }
+    
+    .prompt-text.example:hover {
+      background: #c6f6d5;
+    }
+    
+    .tips-box {
+      background: #fffbf0;
+      border: 2px solid #faf089;
+      border-left: 6px solid #f6e05e;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+    }
+    
+    .tips-box h3 {
+      color: #744210;
+      margin-bottom: 1rem;
+    }
+    
+    /* Grid Layouts */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .tool-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .tool-card:hover {
+      border-color: #667eea;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+    }
+    
+    .tool-card h3 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .tool-card p {
+      color: #4a5568;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    
+    .problem-solution {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+    
+    .problem-column, .solution-column {
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    
+    .problem-column {
+      background: #fed7d7;
+      border-left: 4px solid #e53e3e;
+    }
+    
+    .solution-column {
+      background: #c6f6d5;
+      border-left: 4px solid #38a169;
+    }
+    
+    .problem-column h4 {
+      color: #742a2a;
+      margin-bottom: 1rem;
+    }
+    
+    .solution-column h4 {
+      color: #22543d;
+      margin-bottom: 1rem;
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #667eea;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 60px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #667eea;
+      border: 4px solid #ffffff;
+      box-shadow: 0 0 0 2px #667eea;
+    }
+    
+    .timeline-content {
+      background: #f7fafc;
+      padding: 1rem;
+      border-radius: 10px;
+      border-left: 3px solid #667eea;
+    }
+    
+    .timeline-content h4 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .timeline-content p {
+      color: #4a5568;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-content ul {
+      margin-left: 1rem;
+      color: #4a5568;
+    }
+    
+    /* Roadmap */
+    .roadmap-box {
+      background: #f7fafc;
+      border: 2px solid #e2e8f0;
+      border-left: 6px solid #667eea;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+    }
+    
+    .roadmap-box h3 {
+      color: #667eea;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+    }
+    
+    .roadmap {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1rem;
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .roadmap-week {
+      background: #667eea;
+      color: #ffffff;
+      padding: 0.5rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .roadmap-content h4 {
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+    
+    .roadmap-content ul {
+      color: #4a5568;
+      margin-left: 1rem;
+    }
+    
+    /* Resource Grid */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .resource-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .resource-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .resource-card h3 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .resource-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .resource-card li {
+      margin-bottom: 0.5rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .resource-card li:last-child {
+      border-bottom: none;
+    }
+    
+    .resource-card a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .resource-card a:hover {
+      color: #5a67d8;
+      text-decoration: underline;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #667eea;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 0.5rem;
+      font-family: 'Prompt', sans-serif;
+    }
+    
+    .btn:hover {
+      background: #5a67d8;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-secondary {
+      background: #718096;
+    }
+    
+    .btn-secondary:hover {
+      background: #4a5568;
+    }
+    
+    /* Footer */
+    .feedback-section {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
+    .feedback-section h3 {
+      color: #744210;
+      margin-bottom: 1rem;
+    }
+    
+    .feedback-section p {
+      color: #744210;
+      margin-bottom: 1.5rem;
+    }
+    
+    .next-steps {
+      background: #c6f6d5;
+      border: 2px solid #68d391;
+      border-left: 6px solid #38a169;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+    }
+    
+    .next-steps h3 {
+      color: #22543d;
+      margin-bottom: 1rem;
+    }
+    
+    .next-steps ul {
+      color: #22543d;
+      margin-left: 1.5rem;
+    }
+    
+    .next-steps li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    
+    footer {
+      background: #2d3748;
+      color: #ffffff;
+      padding: 2rem;
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-content h3 {
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .contact-item h4 {
+      color: #a0aec0;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-item p {
+      color: #e2e8f0;
+    }
+    
+    .contact-item a {
+      color: #4ade80;
+      text-decoration: none;
+    }
+    
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #4a5568;
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .footer-bottom p {
+      margin: 0.5rem 0;
+      color: #a0aec0;
+    }
+    
+    /* Lists */
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.3rem;
+      line-height: 1.5;
+      color: #4a5568;
+    }
+    
+    /* Typography */
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: #4a5568;
+    }
+    
+    strong {
+      color: #2d3748;
+      font-weight: 600;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container { 
+        margin: 10px; 
+        border-radius: 15px; 
+      }
+      
+      header { 
+        padding: 2rem 1rem; 
+      }
+      
+      header h1 { 
+        font-size: 2rem; 
+      }
+      
+      header .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      main { 
+        padding: 1rem; 
+      }
+      
+      .section { 
+        padding: 1.5rem; 
+        margin-bottom: 2rem;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .share-btn {
+        align-self: flex-start;
+      }
+      
+      .tool-grid { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .problem-solution {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .roadmap-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      
+      .roadmap-week {
+        text-align: center;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      nav ul { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 0.5rem;
+      }
+      
+      .timeline-item {
+        padding-left: 40px;
+      }
+      
+      .timeline::before {
+        left: 10px;
+      }
+      
+      .timeline-item::before {
+        left: 0;
+      }
+      
+      .prompt-text {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+      
+      .btn {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+      
+      .line-profile {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .user-profile {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .section-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 1rem;
+      }
+      
+      .activity-box,
+      .discussion-box,
+      .workshop-box,
+      .warning-box,
+      .best-practice,
+      .guidelines-box,
+      .tips-box,
+      .roadmap-box {
+        padding: 1rem;
+      }
+      
+      .prompt-category {
+        padding: 1rem;
+      }
+      
+      .timer {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+      
+      .line-login-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .share-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Animation for elements */
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    
+    /* Loading animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .section {
+      animation: fadeInUp 0.6s ease;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    // ============================================
+    // LINE LIFF Configuration
+    // ============================================
+    const LIFF_ID = '2007750782-8EGkB1Z3';
+    let liffInitialized = false;
+    let userProfile = null;
+    let isInLineApp = false;
+    
+    // ============================================
+    // Toast Notification System
+    // ============================================
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      
+      toast.className = `toast ${type}`;
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+    
+    // ============================================
+    // LINE Environment Detection
+    // ============================================
+    function detectLineEnvironment() {
+      const userAgent = navigator.userAgent;
+      isInLineApp = userAgent.includes('Line/') || 
+                   userAgent.includes('LINE/') ||
+                   window.location.hostname.includes('liff');
+      
+      updateLineFeatureStatus();
+      return isInLineApp;
+    }
+    
+    function updateLineFeatureStatus() {
+      const statusElement = document.getElementById('line-feature-status');
+      
+      if (isInLineApp) {
+        statusElement.textContent = 'เปิดใน LINE แล้ว! สามารถใช้ฟีเจอร์แชร์ได้';
+        statusElement.style.color = '#00B900';
+      } else {
+        statusElement.textContent = 'ฟีเจอร์แชร์ใช้ได้ใน LINE เท่านั้น';
+        statusElement.style.color = '#e53e3e';
+      }
+    }
+    
+    // ============================================
+    // Session Management
+    // ============================================
+    function saveUserSession(profile) {
+      try {
+        localStorage.setItem('lineUserProfile', JSON.stringify(profile));
+        localStorage.setItem('lineLoginTime', Date.now().toString());
+      } catch (error) {
+        console.log('Session save failed:', error);
+      }
+    }
+    
+    function loadUserSession() {
+      try {
+        const savedProfile = localStorage.getItem('lineUserProfile');
+        const loginTime = localStorage.getItem('lineLoginTime');
+        
+        if (savedProfile && loginTime) {
+          // Check if session is less than 24 hours old
+          const timeDiff = Date.now() - parseInt(loginTime);
+          if (timeDiff < 24 * 60 * 60 * 1000) {
+            return JSON.parse(savedProfile);
+          }
+        }
+      } catch (error) {
+        console.log('Session load failed:', error);
+      }
+      return null;
+    }
+    
+    function clearUserSession() {
+      try {
+        localStorage.removeItem('lineUserProfile');
+        localStorage.removeItem('lineLoginTime');
+      } catch (error) {
+        console.log('Session clear failed:', error);
+      }
+    }
+    
+    // ============================================
+    // LIFF Initialization and Authentication
+    // ============================================
+    async function initializeLIFF() {
+      try {
+        console.log('Initializing LIFF...');
+        await liff.init({ liffId: LIFF_ID });
+        liffInitialized = true;
+        
+        console.log('LIFF initialized successfully');
+        
+        // Check login status
+        if (liff.isLoggedIn()) {
+          console.log('User is logged in');
+          await loadUserProfile();
+        } else {
+          console.log('User is not logged in');
+          // Try to load from session
+          const savedProfile = loadUserSession();
+          if (savedProfile) {
+            console.log('Loaded profile from session');
+            userProfile = savedProfile;
+            updateUIForLoggedInUser();
+          } else {
+            updateUIForLoggedOutUser();
+          }
+        }
+        
+        updateShareButtonStates();
+        
+      } catch (error) {
+        console.error('LIFF initialization failed:', error);
+        updateUIForLiffError();
+      }
+    }
+    
+    async function loadUserProfile() {
+      try {
+        const profile = await liff.getProfile();
+        userProfile = {
+          userId: profile.userId,
+          displayName: profile.displayName,
+          pictureUrl: profile.pictureUrl || ''
+        };
+        
+        console.log('User profile loaded:', userProfile);
+        saveUserSession(userProfile);
+        updateUIForLoggedInUser();
+        
+      } catch (error) {
+        console.error('Failed to load user profile:', error);
+        updateUIForLoggedOutUser();
+      }
+    }
+    
+    function loginWithLine() {
+      if (!liffInitialized) {
+        showToast('กำลังเชื่อมต่อกับ LINE...', 'error');
+        return;
+      }
+      
+      try {
+        liff.login();
+      } catch (error) {
+        console.error('Login failed:', error);
+        showToast('เข้าสู่ระบบไม่สำเร็จ กรุณาลองใหม่', 'error');
+      }
+    }
+    
+    function logoutFromLine() {
+      try {
+        if (liffInitialized && liff.isLoggedIn()) {
+          liff.logout();
+        }
+        userProfile = null;
+        clearUserSession();
+        updateUIForLoggedOutUser();
+        updateShareButtonStates();
+        showToast('ออกจากระบบเรียบร้อยแล้ว');
+      } catch (error) {
+        console.error('Logout failed:', error);
+        showToast('ออกจากระบบไม่สำเร็จ', 'error');
+      }
+    }
+    
+    // ============================================
+    // UI Update Functions
+    // ============================================
+    function updateUIForLoggedInUser() {
+      const loginBtn = document.getElementById('login-btn');
+      const userProfileDiv = document.getElementById('user-profile');
+      const userAvatar = document.getElementById('user-avatar');
+      const userName = document.getElementById('user-name');
+      
+      loginBtn.style.display = 'none';
+      userProfileDiv.style.display = 'flex';
+      
+      if (userProfile) {
+        userName.textContent = userProfile.displayName;
+        if (userProfile.pictureUrl) {
+          userAvatar.src = userProfile.pictureUrl;
+          userAvatar.style.display = 'block';
+        } else {
+          userAvatar.style.display = 'none';
+        }
+      }
+    }
+    
+    function updateUIForLoggedOutUser() {
+      const loginBtn = document.getElementById('login-btn');
+      const userProfileDiv = document.getElementById('user-profile');
+      
+      if (isInLineApp) {
+        loginBtn.style.display = 'flex';
+      } else {
+        loginBtn.style.display = 'none';
+      }
+      userProfileDiv.style.display = 'none';
+    }
+    
+    function updateUIForLiffError() {
+      const statusElement = document.getElementById('line-feature-status');
+      statusElement.textContent = 'เกิดข้อผิดพลาดในการเชื่อมต่อ LINE';
+      statusElement.style.color = '#e53e3e';
+      updateUIForLoggedOutUser();
+    }
+    
+    function updateShareButtonStates() {
+      const shareButtons = document.querySelectorAll('.share-btn');
+      
+      shareButtons.forEach(btn => {
+        if (!isInLineApp) {
+          btn.disabled = true;
+          btn.title = 'ฟีเจอร์นี้ใช้ได้ใน LINE เท่านั้น';
+        } else if (!userProfile) {
+          btn.disabled = true;
+          btn.title = 'กรุณาเข้าสู่ระบบด้วย LINE ก่อน';
+        } else {
+          btn.disabled = false;
+          btn.title = 'แชร์ส่วนนี้ผ่าน LINE';
+        }
+      });
+    }
+    
+    // ============================================
+    // Share Function
+    // ============================================
+    function getShareContent(sectionId) {
+      const sectionTitles = {
+        'section1': '🎯 เปิดโลก AI กับคุณครู',
+        'section2': '🛠️ รู้จักเครื่องมือ AI สำหรับครู',
+        'section3': '⚡ Hands-on Workshop',
+        'section4': '⚖️ จริยธรรม AI ในการศึกษา',
+        'section5': '📝 ตัวอย่าง Prompts สำหรับครู',
+        'section6': '📚 แหล่งเรียนรู้และทรัพยากร'
+      };
+      
+      const sectionDescriptions = {
+        'section1': 'เริ่มต้นทำความรู้จักกับ AI และการประยุกต์ใช้ในการศึกษา พร้อมกิจกรรม Ice Breaking และ Discussion',
+        'section2': 'แนะนำเครื่องมือ AI ที่ครูสามารถนำไปใช้ได้จริง เช่น ChatGPT, Canva AI, Gamma และ Quizizz',
+        'section3': 'ลงมือปฏิบัติจริง! สร้างสื่อการสอนและแก้ปัญหาการเรียนการสอนด้วย AI',
+        'section4': 'เรียนรู้การใช้ AI อย่างรับผิดชอบ พร้อม Best Practices และ Guidelines สำหรับห้องเรียน',
+        'section5': 'Prompt Templates พร้อมใช้! ตัวอย่าง Prompts สำหรับสร้างแผนการสอน ใบงาน และกิจกรรม',
+        'section6': 'แหล่งเรียนรู้เพิ่มเติมและแผนพัฒนาต่อยอดทักษะ AI เป็นเวลา 90 วัน'
+      };
+      
+      const currentUrl = window.location.href.split('#')[0];
+      const sectionUrl = `${currentUrl}#${sectionId}`;
+      
+      return {
+        type: 'text',
+        text: `${sectionTitles[sectionId] || 'AI Starter Kit สำหรับครู'}
+
+${sectionDescriptions[sectionId] || 'เนื้อหาการอบรม AI สำหรับครูยุคใหม่'}
+
+🔗 ดูรายละเอียดเพิ่มเติม: ${sectionUrl}
+
+#AIStarterKit #ครูยุคใหม่ #ปัญญาประดิษฐ์ #การศึกษา`
+      };
+    }
+    
+    async function shareToLine(sectionId) {
+      if (!isInLineApp) {
+        showToast('ฟีเจอร์นี้ใช้ได้ใน LINE เท่านั้น', 'error');
+        return;
+      }
+      
+      if (!userProfile) {
+        showToast('กรุณาเข้าสู่ระบบด้วย LINE ก่อน', 'error');
+        return;
+      }
+      
+      if (!liffInitialized) {
+        showToast('กำลังเชื่อมต่อกับ LINE...', 'error');
+        return;
+      }
+      
+      try {
+        const shareContent = getShareContent(sectionId);
+        
+        const result = await liff.shareTargetPicker([shareContent]);
+        
+        if (result) {
+          showToast('แชร์สำเร็จ! 🎉');
+        }
+        
+      } catch (error) {
+        console.error('Share failed:', error);
+        
+        if (error.code === 'CANCEL') {
+          showToast('ยกเลิกการแชร์');
+        } else {
+          showToast('แชร์ไม่สำเร็จ กรุณาลองใหม่', 'error');
+        }
+      }
+    }
+    
+    // ============================================
+    // Document Ready and Event Listeners
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM Content Loaded');
+      
+      // Detect LINE environment first
+      detectLineEnvironment();
+      
+      // Initialize LIFF if in LINE environment
+      if (isInLineApp && typeof liff !== 'undefined') {
+        initializeLIFF();
+      } else {
+        console.log('Not in LINE environment or LIFF not available');
+        updateUIForLoggedOutUser();
+        updateShareButtonStates();
+      }
+      
+      // ============================================
+      // Event Listeners Setup
+      // ============================================
+      
+      // Login button
+      const loginBtn = document.getElementById('login-btn');
+      if (loginBtn) {
+        loginBtn.addEventListener('click', loginWithLine);
+      }
+      
+      // Logout button
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', logoutFromLine);
+      }
+      
+      // Share buttons
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const sectionId = this.getAttribute('data-section');
+          shareToLine(sectionId);
+        });
+      });
+      
+      // ============================================
+      // Existing Functionality
+      // ============================================
+      
+      // Smooth Scrolling for Navigation
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Highlight current section in navigation
+      function highlightCurrentSection() {
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        let currentSection = '';
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom > 100) {
+            currentSection = '#' + section.id;
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.style.background = '';
+          link.style.color = '#ffffff';
+          if (link.getAttribute('href') === currentSection) {
+            link.style.background = '#667eea';
+            link.style.color = '#ffffff';
+          }
+        });
+      }
+
+      // Call on scroll
+      window.addEventListener('scroll', highlightCurrentSection);
+      highlightCurrentSection();
+
+      // Add ripple effect to buttons
+      document.querySelectorAll('.btn, .line-login-btn, .share-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          if (this.disabled) return;
+          
+          const rect = this.getBoundingClientRect();
+          const ripple = document.createElement('span');
+          ripple.style.position = 'absolute';
+          ripple.style.borderRadius = '50%';
+          ripple.style.background = 'rgba(255,255,255,0.6)';
+          ripple.style.transform = 'scale(0)';
+          ripple.style.animation = 'ripple 0.6s linear';
+          ripple.style.left = (e.clientX - rect.left) + 'px';
+          ripple.style.top = (e.clientY - rect.top) + 'px';
+          ripple.style.width = '20px';
+          ripple.style.height = '20px';
+          ripple.style.pointerEvents = 'none';
+          
+          this.style.position = 'relative';
+          this.style.overflow = 'hidden';
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            if (ripple.parentNode) {
+              ripple.parentNode.removeChild(ripple);
+            }
+          }, 600);
+        });
+      });
+
+      // Add intersection observer for animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+      });
+
+      // Copy prompt text functionality
+      document.querySelectorAll('.prompt-text').forEach(promptBox => {
+        promptBox.addEventListener('click', function() {
+          navigator.clipboard.writeText(this.textContent.trim()).then(() => {
+            // Show feedback
+            const originalBg = this.style.backgroundColor;
+            this.style.backgroundColor = '#c6f6d5';
+            this.style.transition = 'background-color 0.3s';
+            
+            setTimeout(() => {
+              this.style.backgroundColor = originalBg;
+            }, 1000);
+            
+            showToast('คัดลอก Prompt สำเร็จ! 📋');
+          }).catch(err => {
+            console.log('Could not copy text: ', err);
+            showToast('ไม่สามารถคัดลอกได้', 'error');
+          });
+        });
+        
+        // Add hover effect
+        promptBox.style.cursor = 'pointer';
+        promptBox.title = 'คลิกเพื่อคัดลอก Prompt';
+      });
+      
+      // ============================================
+      // Additional Features
+      // ============================================
+      
+      // Add loading state for share buttons
+      function setShareButtonLoading(button, loading) {
+        if (loading) {
+          button.disabled = true;
+          button.innerHTML = `
+            <svg class="share-icon animate-spin" viewBox="0 0 24 24" width="16" height="16">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.25"/>
+              <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+            </svg>
+            กำลังแชร์...
+          `;
+        } else {
+          button.disabled = false;
+          button.innerHTML = `
+            <svg class="share-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+            </svg>
+            แชร์ผ่าน LINE
+          `;
+          updateShareButtonStates(); // Re-apply disabled state if needed
+        }
+      }
+      
+      // Enhanced share function with loading state
+      const originalShareToLine = window.shareToLine;
+      window.shareToLine = async function(sectionId) {
+        const button = document.querySelector(`.share-btn[data-section="${sectionId}"]`);
+        
+        if (button) {
+          setShareButtonLoading(button, true);
+        }
+        
+        try {
+          await originalShareToLine(sectionId);
+        } catch (error) {
+          console.error('Share error:', error);
+        } finally {
+          if (button) {
+            setTimeout(() => {
+              setShareButtonLoading(button, false);
+            }, 1000);
+          }
+        }
+      };
+      
+      // Add keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        // Alt + S for share current section
+        if (e.altKey && e.key === 's') {
+          e.preventDefault();
+          const currentSection = getCurrentSection();
+          if (currentSection) {
+            shareToLine(currentSection);
+          }
+        }
+        
+        // Alt + L for login/logout
+        if (e.altKey && e.key === 'l') {
+          e.preventDefault();
+          if (userProfile) {
+            logoutFromLine();
+          } else {
+            loginWithLine();
+          }
+        }
+      });
+      
+      function getCurrentSection() {
+        const sections = document.querySelectorAll('.section');
+        let currentSection = null;
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom > 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        return currentSection;
+      }
+      
+      // Add analytics tracking (if needed)
+      function trackEvent(action, section) {
+        console.log(`Event: ${action}, Section: ${section}`);
+        // Add your analytics code here
+      }
+      
+      // Track share events
+      document.querySelectorAll('.share-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const sectionId = this.getAttribute('data-section');
+          trackEvent('share_attempt', sectionId);
+        });
+      });
+      
+      // Track login events
+      document.getElementById('login-btn')?.addEventListener('click', function() {
+        trackEvent('login_attempt', 'header');
+      });
+      
+      console.log('AI Starter Kit Enhanced with LINE Integration loaded successfully! 🚀');
+      console.log('Available keyboard shortcuts:');
+      console.log('- Alt + S: Share current section');
+      console.log('- Alt + L: Login/Logout');
+    });
+    
+    // ============================================
+    // Global Functions (for debugging)
+    // ============================================
+    window.debugLIFF = function() {
+      console.log('LIFF Debug Info:');
+      console.log('- LIFF Initialized:', liffInitialized);
+      console.log('- Is in LINE App:', isInLineApp);
+      console.log('- User Profile:', userProfile);
+      console.log('- LIFF Login Status:', liffInitialized ? liff.isLoggedIn() : 'N/A');
+    };
+    
+    window.testShare = function(sectionId = 'section1') {
+      console.log('Testing share for section:', sectionId);
+      shareToLine(sectionId);
+    };
+    
+    window.testToast = function(message = 'Test notification', type = 'success') {
+      showToast(message, type);
+    };
+  </script>
+
+</body>
+</html>
