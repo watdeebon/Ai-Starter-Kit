@@ -751,6 +751,7 @@
     window.restartQuiz = restartQuiz;
     window.shareScore = shareScore;
     window.shareLeaderboard = shareLeaderboard;
+    window.testAPI = testAPI; // เพิ่มฟังก์ชันทดสอบ
 
     // Initialize when page loads
     document.addEventListener('DOMContentLoaded', function() {
