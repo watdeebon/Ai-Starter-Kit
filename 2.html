@@ -41,7 +41,7 @@
             <div class="timeline-item">
               <div class="timeline-content">
                 <h4>เกม AI Quiz (15 นาที)</h4>
-                <p>ใช้ Kahoot หรือ Mentimeter สร้างบรรยากาศสนุก</p>
+                <p><a href="https://liff.line.me/2007750782-NE3KqA8Y" target="_blank">AI Quiz Challenge</a></p>
                 <ul>
                   <li>AI อยู่รอบตัวเราตรงไหนบ้าง?</li>
                   <li>ข้อดี-ข้อเสียของ AI ในการศึกษา</li>
@@ -76,7 +76,7 @@
       </section>
 
       <section id="section2" class="section">
-        <h2><span class="section-number">2</span>รู้จักเครื่องมือ AI สำหรับครู</h2>
+        <h2><span class="section-number">2</span>รู้จัก AI และเครื่องมือ สำหรับครู</h2>
         <div class="timer">⏱️ 90 นาที</div>
 
         <div class="tool-grid">
@@ -822,152 +822,7 @@
       font-size: 0.9rem;
     }
     
-    /* Activity Boxes */
-    .activity-box {
-      background: #f7fafc;
-      border: 2px solid #e2e8f0;
-      border-left: 6px solid #f093fb;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-    }
-    
-    .activity-box h3 {
-      color: #2d3748;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-    
-    .discussion-box {
-      background: #ebf8ff;
-      border: 2px solid #bee3f8;
-      border-left: 6px solid #4299e1;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-    }
-    
-    .discussion-box h3 {
-      color: #2b6cb0;
-      margin-bottom: 1rem;
-    }
-    
-    .workshop-box {
-      background: #f0fff4;
-      border: 2px solid #c6f6d5;
-      border-left: 6px solid #48bb78;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-    }
-    
-    .workshop-box h3 {
-      color: #2f855a;
-      margin-bottom: 1rem;
-    }
-    
-    .warning-box {
-      background: #fed7d7;
-      border: 2px solid #fc8181;
-      border-left: 6px solid #e53e3e;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-    }
-    
-    .warning-box h3 {
-      color: #742a2a;
-      margin-bottom: 1rem;
-    }
-    
-    .best-practice {
-      background: #c6f6d5;
-      border: 2px solid #68d391;
-      border-left: 6px solid #38a169;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-    }
-    
-    .best-practice h3 {
-      color: #22543d;
-      margin-bottom: 1rem;
-    }
-    
-    .guidelines-box {
-      background: #edf2f7;
-      border: 2px solid #cbd5e0;
-      border-left: 6px solid #4a5568;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-    }
-    
-    .guidelines-box h3 {
-      color: #2d3748;
-      margin-bottom: 1rem;
-    }
-    
-    /* Prompt Styles */
-    .prompt-category {
-      background: #ffffff;
-      border: 2px solid #e2e8f0;
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    
-    .prompt-category h3 {
-      color: #667eea;
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 0.5rem;
-    }
-    
-    .prompt-example {
-      margin: 1rem 0;
-    }
-    
-    .prompt-example h4 {
-      color: #4a5568;
-      margin: 1rem 0 0.5rem 0;
-      font-size: 1.1rem;
-    }
-    
-    .prompt-text {
-      background: #edf2f7;
-      border-left: 4px solid #667eea;
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 0.5rem 0;
-      font-family: 'Prompt', sans-serif;
-      color: #2d3748;
-      line-height: 1.5;
-    }
-    
-    .prompt-text.example {
-      background: #f0fff4;
-      border-left-color: #38a169;
-      color: #22543d;
-    }
-    
-    .tips-box {
-      background: #fffbf0;
-      border: 2px solid #faf089;
-      border-left: 6px solid #f6e05e;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-    }
-    
-    .tips-box h3 {
-      color: #744210;
-      margin-bottom: 1rem;
-    }
-    
-    /* Grid Layouts */
+    /* Enhanced Tool Grid */
     .tool-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -983,6 +838,13 @@
       text-align: center;
       transition: all 0.3s;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tool-card.featured {
+      border: 2px solid #667eea;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6edff 100%);
     }
     
     .tool-card:hover {
