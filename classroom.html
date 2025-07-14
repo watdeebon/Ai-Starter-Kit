@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บทเรียนออนไลน์ วิชาภาษาไทย ป.4</title>
+  <!-- Font: Noto Sans Thai -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Noto Sans Thai', sans-serif;
+      background-color: #fff6f6;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+  <!-- Header -->
+  <header class="bg-[#fff0f0] border-b border-red-200 shadow-sm px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <img src="https://cdn-icons-png.flaticon.com/512/2482/2482930.png" alt="Logo" class="w-10 h-10 rounded">
+      <span class="text-2xl font-bold text-red-700">บทเรียนออนไลน์ วิชาภาษาไทย ป.4</span>
+    </div>
+    <nav class="space-x-4 hidden md:inline-block">
+      <a href="#" class="text-red-600 font-medium hover:underline">หน้าแรก</a>
+      <a href="#" class="text-red-600 font-medium hover:underline">คำอธิบายรายวิชา</a>
+      <a href="#" class="text-red-600 font-medium hover:underline">ใบความรู้</a>
+      <a href="#" class="text-red-600 font-medium hover:underline">ใบกิจกรรม</a>
+      <a href="#" class="text-red-600 font-medium hover:underline">แบบทดสอบ</a>
+      <a href="#" class="text-red-600 font-medium hover:underline">สื่อวิดีทัศน์</a>
+      <a href="#" class="text-red-600 font-medium hover:underline">ผู้จัดทำ</a>
+    </nav>
+    <!-- Hamburger for mobile -->
+    <button class="md:hidden text-red-600" id="mobileMenuBtn"><i class="fa fa-bars"></i></button>
+  </header>
+  <!-- Mobile nav (hidden by default) -->
+  <nav class="bg-[#fff0f0] px-4 py-2 hidden flex-col space-y-2" id="mobileNav">
+    <a href="#" class="text-red-600 font-medium">หน้าแรก</a>
+    <a href="#" class="text-red-600 font-medium">คำอธิบายรายวิชา</a>
+    <a href="#" class="text-red-600 font-medium">ใบความรู้</a>
+    <a href="#" class="text-red-600 font-medium">ใบกิจกรรม</a>
+    <a href="#" class="text-red-600 font-medium">แบบทดสอบ</a>
+    <a href="#" class="text-red-600 font-medium">สื่อวิดีทัศน์</a>
+    <a href="#" class="text-red-600 font-medium">ผู้จัดทำ</a>
+  </nav>
+  <!-- Banner -->
+  <section class="bg-gradient-to-r from-red-200 to-[#fff0f0] px-4 py-8 flex flex-col items-center text-center">
+    <img src="https://cdn-icons-png.flaticon.com/512/3515/3515227.png" alt="Tech" class="w-20 mb-4">
+    <h2 class="text-3xl font-bold text-red-700 mb-2">ยินดีต้อนรับสู่บทเรียนออนไลน์ วิชาภาษาไทย ป.4</h2>
+    <p class="text-red-700/80 max-w-xl mx-auto">เรียนสนุก เข้าใจง่าย ได้ความรู้ครบถ้วน พร้อมกิจกรรมและแบบทดสอบทุกบทเรียน</p>
+  </section>
+  <!-- Knowledge Cards -->
+  <main class="flex-1 px-4 py-8 max-w-4xl mx-auto w-full">
+    <h3 class="text-xl font-bold mb-6 text-red-700">ใบความรู้ (ทั้งหมด 4 บท)</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white shadow-lg rounded-xl p-5 flex flex-col items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907985.png" class="w-12 mb-3" alt="บทที่ 1">
+        <div class="text-lg font-semibold text-red-700 mb-1">บทที่ 1 การอ่านจับใจความ</div>
+        <div class="text-gray-600 text-sm mb-3">ฝึกอ่านและวิเคราะห์ใจความสำคัญในบทความต่าง ๆ</div>
+        <button class="mt-auto bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-medium shadow">เริ่มเรียน</button>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-white shadow-lg rounded-xl p-5 flex flex-col items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/1752/1752723.png" class="w-12 mb-3" alt="บทที่ 2">
+        <div class="text-lg font-semibold text-red-700 mb-1">บทที่ 2 คำและความหมาย</div>
+        <div class="text-gray-600 text-sm mb-3">เรียนรู้ประเภทของคำและความหมายในบริบทที่ต่างกัน</div>
+        <button class="mt-auto bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-medium shadow">เริ่มเรียน</button>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-white shadow-lg rounded-xl p-5 flex flex-col items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/4017/4017707.png" class="w-12 mb-3" alt="บทที่ 3">
+        <div class="text-lg font-semibold text-red-700 mb-1">บทที่ 3 การเขียนประโยค</div>
+        <div class="text-gray-600 text-sm mb-3">ฝึกแต่งประโยคและเขียนสื่อความหมายได้ถูกต้อง</div>
+        <button class="mt-auto bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-medium shadow">เริ่มเรียน</button>
+      </div>
+      <!-- Card 4 -->
+      <div class="bg-white shadow-lg rounded-xl p-5 flex flex-col items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/3024/3024591.png" class="w-12 mb-3" alt="บทที่ 4">
+        <div class="text-lg font-semibold text-red-700 mb-1">บทที่ 4 วรรณคดีน่ารู้</div>
+        <div class="text-gray-600 text-sm mb-3">รู้จักวรรณคดีสำคัญและบทเรียนจากเรื่องเล่าไทย</div>
+        <button class="mt-auto bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-medium shadow">เริ่มเรียน</button>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-[#333333] text-white py-6 mt-10">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center px-4 space-y-2 sm:space-y-0">
+      <div>
+        Copyright © 2025 บทเรียนออนไลน์วิชาภาษาไทย ป.4<br>
+        Dev by [ชื่อครู], All rights reserved.
+      </div>
+      <div class="text-sm">ติดต่อ: school@example.com</div>
+    </div>
+  </footer>
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/64c4e1bace.js" crossorigin="anonymous"></script>
+  <!-- Mobile Nav Toggle -->
+  <script>
+    document.getElementById('mobileMenuBtn').onclick = function() {
+      var nav = document.getElementById('mobileNav');
+      nav.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
