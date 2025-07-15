@@ -267,6 +267,13 @@
       font-family: 'Prompt', sans-serif;
       color: #2d3748;
       line-height: 1.5;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .prompt-text:hover {
+      background: #e2e8f0;
+      transform: translateX(5px);
     }
     
     .prompt-text.example {
@@ -555,6 +562,22 @@
       background: #4a5568;
     }
     
+    .btn-success {
+      background: #38a169;
+    }
+    
+    .btn-success:hover {
+      background: #2f855a;
+    }
+    
+    .btn-warning {
+      background: #ed8936;
+    }
+    
+    .btn-warning:hover {
+      background: #dd6b20;
+    }
+    
     /* Footer */
     .feedback-section {
       background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
@@ -687,6 +710,114 @@
       font-weight: 600;
     }
     
+    /* เพิ่ม style เฉพาะของลูกเล่นใหม่ */
+    .prompt-input {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      font-family: 'Prompt', sans-serif;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    
+    .prompt-gen-box {
+      background: #f0f4ff;
+      border: 2px solid #a3bffa;
+      border-left: 6px solid #667eea;
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+    }
+    
+    .prompt-card {
+      background: #f7fafc;
+      border: 1px solid #e2e8f0;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(102,126,234,0.07);
+      transition: all 0.2s;
+      margin-bottom: 0.5rem;
+      margin-right: 1rem;
+      display: inline-block;
+    }
+    
+    .prompt-card:hover {
+      background: #c6f6d5;
+      border-color: #38a169;
+    }
+    
+    .grade-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .grade-tab {
+      padding: 0.5rem 1rem;
+      background: #e2e8f0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Prompt', sans-serif;
+      font-weight: 500;
+    }
+    
+    .grade-tab.active {
+      background: #667eea;
+      color: #ffffff;
+    }
+    
+    .grade-content {
+      display: none;
+    }
+    
+    .grade-content.active {
+      display: block;
+    }
+    
+    .prompt-share {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(102, 126, 234, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+    
+    .share-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    
+    .share-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      font-family: 'Prompt', sans-serif;
+    }
+    
+    .share-btn.line {
+      background: #00B900;
+      color: white;
+    }
+    
+    .share-btn.copy {
+      background: #667eea;
+      color: white;
+    }
+    
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
     /* Responsive Design */
     @media (max-width: 768px) {
       .container { 
@@ -773,6 +904,14 @@
         margin: 0.5rem 0;
         text-align: center;
       }
+      
+      .grade-tabs {
+        justify-content: center;
+      }
+      
+      .share-buttons {
+        justify-content: center;
+      }
     }
     
     @media (max-width: 480px) {
@@ -797,7 +936,8 @@
       .best-practice,
       .guidelines-box,
       .tips-box,
-      .roadmap-box {
+      .roadmap-box,
+      .prompt-gen-box {
         padding: 1rem;
       }
       
@@ -810,41 +950,6 @@
         padding: 0.4rem 0.8rem;
       }
     }
-    /* เพิ่ม style เฉพาะของลูกเล่นใหม่ */
-    .prompt-input {
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-      font-family: 'Prompt', sans-serif;
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-    .prompt-gen-box {
-      background: #f0f4ff;
-      border: 2px solid #a3bffa;
-      border-left: 6px solid #667eea;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-    }
-    .prompt-card {
-      background: #f7fafc;
-      border: 1px solid #e2e8f0;
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(102,126,234,0.07);
-      transition: all 0.2s;
-      margin-bottom: 0.5rem;
-      margin-right: 1rem;
-      display: inline-block;
-    }
-    .prompt-card:hover {
-      background: #c6f6d5;
-      border-color: #38a169;
-    }
-    /* ... [คง style เดิมที่พี่ที่รักมีอยู่] ... */
-    /* สามารถวาง CSS เดิมลงได้เลย */
   </style>
 </head>
 <body>
@@ -879,17 +984,23 @@
         <h3>🔧 สร้าง Prompt ส่วนตัว</h3>
         <form id="promptGenForm" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
           <input type="text" id="subject" placeholder="วิชา เช่น คณิตศาสตร์" class="prompt-input" required>
-          <input type="text" id="grade" placeholder="ชั้น เช่น ป.4" class="prompt-input" required>
-          <input type="text" id="topic" placeholder="หัวข้อ เช่น เศษส่วน" class="prompt-input" required>
-          <input type="number" id="duration" placeholder="จำนวนชั่วโมง" class="prompt-input" min="1" style="width:100px">
+          <input type="text" id="grade" placeholder="ชั้น เช่น อนุบาล 2" class="prompt-input" required>
+          <input type="text" id="topic" placeholder="หัวข้อ เช่น การนับเลข" class="prompt-input" required>
+          <input type="number" id="duration" placeholder="จำนวนชั่วโมง" class="prompt-input" min="1" style="width:120px">
           <button type="submit" class="btn">✨ สร้าง Prompt</button>
-          <button type="button" id="shareLineBtn" class="btn btn-secondary">แชร์ผ่าน LINE</button>
         </form>
         <div id="genResult" class="prompt-text" style="display:none;"></div>
+        <div id="shareSection" class="prompt-share" style="display:none;">
+          <strong>แชร์ Prompt นี้:</strong>
+          <div class="share-buttons">
+            <button class="share-btn line" onclick="shareToLine()">📱 แชร์ใน LINE</button>
+            <button class="share-btn copy" onclick="copyToClipboard()">📋 คัดลอก</button>
+          </div>
+        </div>
       </div>
 
       <!-- Random Prompt -->
-      <button class="btn" onclick="showRandomPrompt()">สุ่มตัวอย่าง Prompt</button>
+      <button class="btn" onclick="showRandomPrompt()">🎲 สุ่มตัวอย่าง Prompt</button>
       <div id="randomPromptBox" class="prompt-text" style="margin-top:1rem;display:none"></div>
 
       <!-- Prompt Gallery -->
@@ -903,7 +1014,7 @@
         </div>
       </div>
 
-<section id="section1" class="section">
+      <section id="section1" class="section">
         <h2><span class="section-number">1</span>เปิดโลก AI กับคุณครู</h2>
         <div class="timer">⏱️ 60 นาที</div>
         
@@ -969,13 +1080,18 @@
           </div>
           <div class="tool-card">
             <h3>Notebooklm</h3>
-            <p>สรุปเนื้อหา</p>
+            <p>สรุปเนื้อหา และสร้าง Podcast</p>
             <a href="https://notebooklm.google.com/" target="_blank" class="btn">ทดลองใช้</a>
           </div>
           <div class="tool-card">
             <h3>Quizizz AI</h3>
             <p>สร้างแบบทดสอบจาก AI</p>
             <a href="https://quizizz.com/" target="_blank" class="btn">ทดลองใช้</a>
+          </div>
+          <div class="tool-card">
+            <h3>Edpuzzle AI</h3>
+            <p>สร้างคำถามจากวิดีโอ</p>
+            <a href="https://edpuzzle.com/" target="_blank" class="btn">ทดลองใช้</a>
           </div>
         </div>
       </section>
@@ -1030,7 +1146,7 @@
                 <li>สร้างเกม/กิจกรรมสนุก</li>
                 <li>ปรับระดับความยาก</li>
                 <li>สร้างสื่อรวดเร็ว</li>
-                <li>ส่วนตัวเพื่อผู้เรียน</li>
+                <li>ปรับให้เหมาะกับผู้เรียน</li>
               </ul>
             </div>
           </div>
@@ -1076,82 +1192,170 @@
         <h2><span class="section-number">5</span>ตัวอย่าง Prompts สำหรับครู</h2>
         <div class="timer">⏱️ 60 นาที</div>
 
-        <div class="prompt-category">
-          <h3>📝 สร้างแผนการสอน</h3>
-          <div class="prompt-example">
-            <h4>Prompt พื้นฐาน:</h4>
-            <div class="prompt-text">
-              "ช่วยสร้างแผนการสอน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] ระยะเวลา [จำนวนชั่วโมง] พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล"
+        <!-- Grade Level Tabs -->
+        <div class="grade-tabs">
+          <button class="grade-tab active" onclick="showGrade('kindergarten')">🧒 อนุบาล</button>
+          <button class="grade-tab" onclick="showGrade('primary')">👦 ประถม</button>
+          <button class="grade-tab" onclick="showGrade('general')">📚 ทั่วไป</button>
+        </div>
+
+        <!-- Kindergarten Prompts -->
+        <div id="kindergarten" class="grade-content active">
+          <div class="prompt-category">
+            <h3>🧒 Prompts สำหรับครูอนุบาล</h3>
+            
+            <div class="prompt-example">
+              <h4>📖 สร้างนิทานเพื่อการเรียนรู้:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "แต่งนิทานสั้นสำหรับเด็กอนุบาล 2 เรื่องการแบ่งปัน ความยาว 1 หน้า ใช้ภาษาง่ายๆ มีตัวละครเป็นสัตว์น่ารัก พร้อมข้อคิดและคำถามทบทวน 3 ข้อ"
+              </div>
             </div>
-            <h4>ตัวอย่างจริง:</h4>
-            <div class="prompt-text example">
-              "ช่วยสร้างแผนการสอนคณิตศาสตร์ สำหรับป.4 เรื่องเศษส่วน ระยะเวลา 3 ชั่วโมง พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล รวมถึงเกมสนุกๆ ที่เด็กจะเข้าใจง่าย"
+
+            <div class="prompt-example">
+              <h4>🎵 สร้างเพลงและเกม:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "สร้างเพลงสำหรับเด็กอนุบาล 3 เรื่องการนับเลข 1-10 ทำนองง่าย จดจำได้ พร้อมท่าเต้นและเกมประกอบ ใช้เวลา 15 นาที"
+              </div>
+            </div>
+
+            <div class="prompt-example">
+              <h4>🎨 กิจกรรมสร้างสรรค์:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "คิดกิจกรรมศิลปะสำหรับเด็กอนุบาล 1 เรื่องสีและรูปทรง ใช้วัสดุง่ายๆ ที่หาได้ในบ้าน ระยะเวลา 30 นาที พร้อมวิธีประเมินพัฒนาการ"
+              </div>
+            </div>
+
+            <div class="prompt-example">
+              <h4>🍎 การสอนนิสัยดี:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "สร้างแผนสอนนิสัยดี เรื่องการล้างมือ สำหรับเด็กอนุบาล 2-3 ใช้เทคนิคเล่าเรื่อง เกม และบทเพลง ระยะเวลา 1 สัปดาห์"
+              </div>
+            </div>
+
+            <div class="prompt-example">
+              <h4>👨‍👩‍👧‍👦 กิจกรรมเกี่ยวกับครอบครัว:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ออกแบบกิจกรรมวันครอบครัว สำหรับเด็กอนุบาล ให้พ่อแม่มีส่วนร่วม เน้นการสื่อสาร ความรัก ใช้เวลา 2 ชั่วโมง"
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="prompt-category">
-          <h3>📋 สร้างใบงาน/แบบทดสอบ</h3>
-          <div class="prompt-example">
-            <h4>Prompt พื้นฐาน:</h4>
-            <div class="prompt-text">
-              "ช่วยสร้างใบงาน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] จำนวน [จำนวนข้อ] ระดับความยาก [ง่าย/ปานกลาง/ยาก] พร้อมเฉลยและคำอธิบาย"
+        <!-- Primary School Prompts -->
+        <div id="primary" class="grade-content">
+          <div class="prompt-category">
+            <h3>👦 Prompts สำหรับครูประถม</h3>
+            
+            <div class="prompt-example">
+              <h4>📝 สร้างใบงานและแบบฝึกหัด:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "สร้างใบงานคณิตศาสตร์ ป.3 เรื่องการคูณ (สูตรคูณ 2-5) จำนวน 20 ข้อ แบ่งเป็น 3 ระดับความยาก พร้อมเฉลยและวิธีทำอย่างละเอียด"
+              </div>
             </div>
-            <h4>ตัวอย่างจริง:</h4>
-            <div class="prompt-text example">
-              "สร้างใบงานภาษาไทย สำหรับ ป.3 เรื่องคำราชาศัพท์ จำนวน 15 ข้อ ระดับความยากปานกลาง พร้อมเฉลยและคำอธิบายความหมาย มีรูปภาพประกอบ"
+
+            <div class="prompt-example">
+              <h4>🎯 เกมการเรียนรู้:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "คิดเกมภาษาไทย ป.4 เรื่องคำพ้องความหมาย-คำตรงข้าม เล่นเป็นทีม 6 คน ใช้อุปกรณ์ในห้องเรียน ระยะเวลา 25 นาที พร้อมวิธีให้คะแนน"
+              </div>
+            </div>
+
+            <div class="prompt-example">
+              <h4>🔬 โครงงานวิทยาศาสตร์:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ออกแบบโครงงานวิทยาศาสตร์ ป.5 เรื่องการปลูกพืช ทำเป็นกลุ่ม 4 คน ระยะเวลา 4 สัปดาห์ พร้อม Rubric การประเมิน และแผนการนำเสนอ"
+              </div>
+            </div>
+
+            <div class="prompt-example">
+              <h4>📚 สร้างเนื้อหาสำหรับ Differentiated Learning:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ปรับเนื้อหาสังคมศึกษา ป.6 เรื่องภูมิศาสตร์ประเทศไทย ให้เหมาะกับนักเรียน 3 ระดับ: เก่ง ปานกลาง อ่อน พร้อมกิจกรรมและการประเมินแยกตามความสามารถ"
+              </div>
+            </div>
+
+            <div class="prompt-example">
+              <h4>🎭 กิจกรรมสร้างสรรค์:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "สร้างบทละครสั้น ป.2 เรื่องการอนุรักษ์สิ่งแวดล้อม ความยาว 10 นาที มีตัวละคร 6 ตัว ภาษาง่าย สนุก มีข้อคิด พร้อมคำแนะนำการแสดง"
+              </div>
+            </div>
+
+            <div class="prompt-example">
+              <h4>💻 กิจกรรม STEM/Coding:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ออกแบบกิจกรรม Coding ป.4-6 แนะนำ Scratch Jr. สร้างเกมง่ายๆ เรื่องการรีไซเคิล ไม่ใช้คอมพิวเตอร์ ใช้บอร์ดเกมแทน ระยะเวลา 45 นาที"
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="prompt-category">
-          <h3>📖 สร้างเนื้อหาการสอน</h3>
-          <div class="prompt-example">
-            <h4>นิทานเพื่อการเรียนรู้:</h4>
-            <div class="prompt-text">
-              "แต่งนิทานสั้นสำหรับเด็ก [ระดับชั้น] เรื่อง [หัวข้อ] ความยาว [จำนวนหน้า] พร้อมข้อคิดท้ายเรื่อง และคำถามทบทวน"
-            </div>
-            <div class="prompt-text example">
-              "แต่งนิทานสั้นสำหรับเด็กอนุบาล เรื่องการแบ่งปัน ความยาว 1 หน้า พร้อมข้อคิดท้ายเรื่อง และคำถามทบทวน 3 ข้อ ใช้ภาษาง่ายๆ"
-            </div>
-          </div>
-        </div>
-
-        <div class="prompt-category">
-          <h3>🎮 สร้างกิจกรรม/เกม</h3>
-          <div class="prompt-example">
-            <h4>เกมการเรียนรู้:</h4>
-            <div class="prompt-text">
-              "ช่วยคิดเกม/กิจกรรมสนุกๆ สำหรับสอน [หัวข้อ] ให้ [ระดับชั้น] ใช้อุปกรณ์ [ระบุอุปกรณ์] ระยะเวลา [นาที] และวิธีการประเมิน"
-            </div>
-            <div class="prompt-text example">
-              "ช่วยคิดเกมสนุกๆ สำหรับสอนวิทยาศาสตร์เรื่องระบบสุริยะ ให้ป.6 ใช้อุปกรณ์ในห้องเรียนทั่วไป ระยะเวลา 30 นาที และวิธีการประเมินความเข้าใจ"
+        <!-- General Prompts -->
+        <div id="general" class="grade-content">
+          <div class="prompt-category">
+            <h3>📝 สร้างแผนการสอน</h3>
+            <div class="prompt-example">
+              <h4>Prompt พื้นฐาน:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ช่วยสร้างแผนการสอน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] ระยะเวลา [จำนวนชั่วโมง] พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล"
+              </div>
+              <h4>ตัวอย่างจริง:</h4>
+              <div class="prompt-text example" onclick="sharePrompt(this)">
+                "ช่วยสร้างแผนการสอนคณิตศาสตร์ สำหรับป.4 เรื่องเศษส่วน ระยะเวลา 3 ชั่วโมง พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล รวมถึงเกมสนุกๆ ที่เด็กจะเข้าใจง่าย"
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="prompt-category">
-          <h3>🔄 ปรับเนื้อหาตามระดับ</h3>
-          <div class="prompt-example">
-            <h4>Differentiated Learning:</h4>
-            <div class="prompt-text">
-              "ช่วยปรับเนื้อหาเรื่อง [หัวข้อ] ให้เหมาะกับนักเรียน 3 ระดับ: เก่ง ปานกลาง และอ่อน สำหรับ [ระดับชั้น] พร้อมกิจกรรมแยกตามความสามารถ"
-            </div>
-            <div class="prompt-text example">
-              "ช่วยปรับเนื้อหาเรื่องการคูณ ให้เหมาะกับนักเรียน 3 ระดับ: เก่ง ปานกลาง และอ่อน สำหรับ ป.3 พร้อมกิจกรรมแยกตามความสามารถ และเทคนิคช่วยจำ"
+          <div class="prompt-category">
+            <h3>📋 สร้างใบงาน/แบบทดสอบ</h3>
+            <div class="prompt-example">
+              <h4>Prompt พื้นฐาน:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ช่วยสร้างใบงาน [วิชา] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] จำนวน [จำนวนข้อ] ระดับความยาก [ง่าย/ปานกลาง/ยาก] พร้อมเฉลยและคำอธิบาย"
+              </div>
+              <h4>ตัวอย่างจริง:</h4>
+              <div class="prompt-text example" onclick="sharePrompt(this)">
+                "สร้างใบงานภาษาไทย สำหรับ ป.3 เรื่องคำราชาศัพท์ จำนวน 15 ข้อ ระดับความยากปานกลาง พร้อมเฉลยและคำอธิบายความหมาย มีรูปภาพประกอบ"
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="prompt-category">
-          <h3>🎯 ประเมินและวัดผล</h3>
-          <div class="prompt-example">
-            <h4>Rubric ประเมิน:</h4>
-            <div class="prompt-text">
-              "สร้าง Rubric ประเมิน [กิจกรรม/ผลงาน] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] แบ่งเป็น 4 ระดับ พร้อมเกณฑ์ชัดเจน"
+          <div class="prompt-category">
+            <h3>🎮 สร้างกิจกรรม/เกม</h3>
+            <div class="prompt-example">
+              <h4>เกมการเรียนรู้:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ช่วยคิดเกม/กิจกรรมสนุกๆ สำหรับสอน [หัวข้อ] ให้ [ระดับชั้น] ใช้อุปกรณ์ [ระบุอุปกรณ์] ระยะเวลา [นาที] และวิธีการประเมิน"
+              </div>
+              <div class="prompt-text example" onclick="sharePrompt(this)">
+                "ช่วยคิดเกมสนุกๆ สำหรับสอนวิทยาศาสตร์เรื่องระบบสุริยะ ให้ป.6 ใช้อุปกรณ์ในห้องเรียนทั่วไป ระยะเวลา 30 นาที และวิธีการประเมินความเข้าใจ"
+              </div>
             </div>
-            <div class="prompt-text example">
-              "สร้าง Rubric ประเมินการนำเสนอโครงงานวิทยาศาสตร์ สำหรับ ม.3 เรื่องพลังงานทดแทน แบ่งเป็น 4 ระดับ พร้อมเกณฑ์ชัดเจนในด้านเนื้อหา การนำเสนอ และความคิดสร้างสรรค์"
+          </div>
+
+          <div class="prompt-category">
+            <h3>🔄 ปรับเนื้อหาตามระดับ</h3>
+            <div class="prompt-example">
+              <h4>Differentiated Learning:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "ช่วยปรับเนื้อหาเรื่อง [หัวข้อ] ให้เหมาะกับนักเรียน 3 ระดับ: เก่ง ปานกลาง และอ่อน สำหรับ [ระดับชั้น] พร้อมกิจกรรมแยกตามความสามารถ"
+              </div>
+              <div class="prompt-text example" onclick="sharePrompt(this)">
+                "ช่วยปรับเนื้อหาเรื่องการคูณ ให้เหมาะกับนักเรียน 3 ระดับ: เก่ง ปานกลาง และอ่อน สำหรับ ป.3 พร้อมกิจกรรมแยกตามความสามารถ และเทคนิคช่วยจำ"
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-category">
+            <h3>🎯 ประเมินและวัดผล</h3>
+            <div class="prompt-example">
+              <h4>Rubric ประเมิน:</h4>
+              <div class="prompt-text" onclick="sharePrompt(this)">
+                "สร้าง Rubric ประเมิน [กิจกรรม/ผลงาน] สำหรับ [ระดับชั้น] เรื่อง [หัวข้อ] แบ่งเป็น 4 ระดับ พร้อมเกณฑ์ชัดเจน"
+              </div>
+              <div class="prompt-text example" onclick="sharePrompt(this)">
+                "สร้าง Rubric ประเมินการนำเสนอโครงงานวิทยาศาสตร์ สำหรับ ม.3 เรื่องพลังงานทดแทน แบ่งเป็น 4 ระดับ พร้อมเกณฑ์ชัดเจนในด้านเนื้อหา การนำเสนอ และความคิดสร้างสรรค์"
+              </div>
             </div>
           </div>
         </div>
@@ -1296,21 +1500,62 @@
   <!-- JavaScript -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
+    // Initialize LIFF
+    let liffInitialized = false;
+    
+    function initializeLIFF() {
+      if (typeof liff !== 'undefined') {
+        liff.init({ liffId: '2007750782-8EGkB1Z3' })
+          .then(() => {
+            liffInitialized = true;
+            console.log('LIFF initialized successfully');
+          })
+          .catch((err) => {
+            console.error('LIFF initialization failed', err);
+          });
+      }
+    }
+
+    // Initialize LIFF when page loads
+    window.addEventListener('load', initializeLIFF);
+
     // AI Tips Animation
     const aiTips = [
-      "Tip: ถาม AI ให้เจาะจง จะได้คำตอบตรงใจมากขึ้น!",
-      "Tip: ขอตัวอย่างหรือขั้นตอนแบบละเอียดได้ เช่น 'อธิบายทีละขั้น'",
-      "Tip: ลองสลับเป็นภาษาอังกฤษ ถ้าเนื้อหาด้านเทคโนโลยีจะละเอียดกว่า",
-      "Tip: อย่าลืมขอ 'เฉลยพร้อมอธิบาย' ในใบงานเสมอ",
-      "Tip: สามารถขอ AI ให้สรุปใน 5 ข้อ หรือขอแบบ Infographic ได้"
+      "💡 Tip: ถาม AI ให้เจาะจง จะได้คำตอบตรงใจมากขึ้น!",
+      "🎯 Tip: ขอตัวอย่างหรือขั้นตอนแบบละเอียดได้ เช่น 'อธิบายทีละขั้น'",
+      "🌍 Tip: ลองสลับเป็นภาษาอังกฤษ ถ้าเนื้อหาด้านเทคโนโลยีจะละเอียดกว่า",
+      "📝 Tip: อย่าลืมขอ 'เฉลยพร้อมอธิบาย' ในใบงานเสมอ",
+      "📊 Tip: สามารถขอ AI ให้สรุปใน 5 ข้อ หรือขอแบบ Infographic ได้",
+      "🎨 Tip: ขอให้ AI สร้างกิจกรรมที่เหมาะกับอายุและระดับชั้นเจาะจง",
+      "⏰ Tip: ระบุเวลาที่มีให้ชัดเจน จะได้กิจกรรมที่เหมาะสมกับเวลา"
     ];
     let aiTipIndex = 0;
+    
     function rotateAITips() {
-      document.getElementById('ai-tips').textContent = aiTips[aiTipIndex];
+      document.getElementById('ai-tips').innerHTML = `<h3>${aiTips[aiTipIndex]}</h3>`;
       aiTipIndex = (aiTipIndex + 1) % aiTips.length;
     }
     setInterval(rotateAITips, 4000);
     rotateAITips();
+
+    // Grade Tab Switching
+    function showGrade(gradeType) {
+      // Hide all grade contents
+      document.querySelectorAll('.grade-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active class from all tabs
+      document.querySelectorAll('.grade-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Show selected grade content
+      document.getElementById(gradeType).classList.add('active');
+      
+      // Add active class to clicked tab
+      event.target.classList.add('active');
+    }
 
     // Prompt Generator
     document.getElementById('promptGenForm').addEventListener('submit', function(e) {
@@ -1319,33 +1564,175 @@
       const grade = document.getElementById('grade').value.trim();
       const topic = document.getElementById('topic').value.trim();
       const duration = document.getElementById('duration').value.trim();
+      
       let prompt = `ช่วยสร้างแผนการสอน${subject} สำหรับ${grade} เรื่อง${topic}`;
       if(duration) prompt += ` ระยะเวลา ${duration} ชั่วโมง`;
-      prompt += ` พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล`;
+      prompt += ` พร้อมวัตถุประสงค์ กิจกรรม และการประเมินผล รวมถึงเกมสนุก ๆ ที่เด็กจะเข้าใจง่าย`;
+      
       document.getElementById('genResult').textContent = prompt;
       document.getElementById('genResult').style.display = 'block';
+      document.getElementById('shareSection').style.display = 'block';
+      
+      // Store current prompt for sharing
+      window.currentPrompt = prompt;
     });
 
-    // LIFF Share to LINE
-    document.getElementById('shareLineBtn').addEventListener('click', function() {
-      const promptText = document.getElementById('genResult').textContent.trim();
-      if(!promptText) {
+    // Share to LINE function
+    function shareToLine() {
+      if (!window.currentPrompt) {
         alert('กรุณาสร้าง Prompt ก่อนแชร์');
         return;
       }
-      if(window.liff) {
-        liff.init({ liffId: '2007750782-8EGkB1Z3' }).then(() => {
-          liff.shareTargetPicker([
-            {
-              type: 'text',
-              text: promptText
-            }
-          ]);
-        });
-      } else {
-        alert("LIFF ยังไม่พร้อมใช้งานในหน้านี้");
+      
+      sharePromptToLine(window.currentPrompt);
+    }
+
+    // Copy to clipboard function
+    function copyToClipboard() {
+      if (!window.currentPrompt) {
+        alert('กรุณาสร้าง Prompt ก่อนคัดลอก');
+        return;
       }
-    });
+      
+      navigator.clipboard.writeText(window.currentPrompt).then(() => {
+        alert('คัดลอก Prompt แล้ว!');
+      });
+    }
+
+    // Enhanced share function for prompts
+    function sharePrompt(element) {
+      const promptText = element.textContent.trim();
+      
+      // Create Flex Message
+      const flexMessage = {
+        type: 'flex',
+        altText: 'AI Prompt สำหรับครู',
+        contents: {
+          type: 'bubble',
+          size: 'kilo',
+          header: {
+            type: 'box',
+            layout: 'vertical',
+            contents: [
+              {
+                type: 'text',
+                text: '🤖 AI Prompt สำหรับครู',
+                weight: 'bold',
+                color: '#667eea',
+                size: 'md'
+              }
+            ],
+            backgroundColor: '#f0f4ff',
+            paddingAll: '15px'
+          },
+          body: {
+            type: 'box',
+            layout: 'vertical',
+            contents: [
+              {
+                type: 'text',
+                text: promptText,
+                wrap: true,
+                color: '#2d3748',
+                size: 'sm',
+                lineSpacing: '4px'
+              }
+            ],
+            paddingAll: '15px'
+          },
+          footer: {
+            type: 'box',
+            layout: 'vertical',
+            contents: [
+              {
+                type: 'button',
+                action: {
+                  type: 'uri',
+                  label: '📚 ดูเพิ่มเติม',
+                  uri: 'https://liff.line.me/2007750782-8EGkB1Z3'
+                },
+                style: 'primary',
+                color: '#667eea'
+              },
+              {
+                type: 'separator',
+                margin: 'md'
+              },
+              {
+                type: 'text',
+                text: 'AI Starter Kit for Teachers',
+                size: 'xs',
+                color: '#999999',
+                align: 'center',
+                margin: 'sm'
+              }
+            ],
+            paddingAll: '10px'
+          }
+        }
+      };
+
+      sharePromptToLine(promptText, flexMessage);
+    }
+
+    // Main share function
+    function sharePromptToLine(promptText, flexMessage = null) {
+      if (!liffInitialized) {
+        // Fallback for non-LIFF environment
+        if (navigator.share) {
+          navigator.share({
+            title: 'AI Prompt สำหรับครู',
+            text: promptText,
+            url: window.location.href
+          }).catch(console.error);
+        } else {
+          // Copy to clipboard as fallback
+          navigator.clipboard.writeText(promptText).then(() => {
+            alert('คัดลอก Prompt แล้ว! สามารถไปแชร์ใน LINE ได้');
+          });
+        }
+        return;
+      }
+
+      try {
+        if (flexMessage) {
+          // Use Flex Message
+          liff.shareTargetPicker([flexMessage])
+            .then(() => {
+              console.log('Flex message shared successfully');
+            })
+            .catch((err) => {
+              console.error('Error sharing flex message:', err);
+              // Fallback to simple text
+              shareSimpleText(promptText);
+            });
+        } else {
+          shareSimpleText(promptText);
+        }
+      } catch (error) {
+        console.error('Share error:', error);
+        // Fallback copy to clipboard
+        navigator.clipboard.writeText(promptText).then(() => {
+          alert('คัดลอก Prompt แล้ว! สามารถไปแชร์ใน LINE ได้');
+        });
+      }
+    }
+
+    // Simple text share fallback
+    function shareSimpleText(text) {
+      liff.shareTargetPicker([
+        {
+          type: 'text',
+          text: text
+        }
+      ]).catch((err) => {
+        console.error('Error sharing simple text:', err);
+        // Final fallback
+        navigator.clipboard.writeText(text).then(() => {
+          alert('คัดลอก Prompt แล้ว!');
+        });
+      });
+    }
 
     // Random Prompt
     function showRandomPrompt() {
@@ -1353,8 +1740,11 @@
         "ช่วยสรุปเนื้อหาเรื่อง พหุนาม สำหรับ ม.2 ให้เข้าใจง่าย พร้อมตารางเปรียบเทียบ",
         "คิดเกมคณิตศาสตร์สำหรับ ป.3 ที่เน้นการนับเลข 1-100 ใช้เวลา 15 นาที",
         "สร้างใบงานวิทยาศาสตร์ เรื่อง สัตว์มีกระดูกสันหลัง สำหรับ ป.5 พร้อมเฉลย",
-        "แต่งนิทานสั้นหัวข้อ ความสามัคคี สำหรับเด็กประถม พร้อมข้อคิดท้ายเรื่อง",
-        "สร้างแบบประเมินตนเองสำหรับนักเรียน เรื่องวินัยในห้องเรียน"
+        "แต่งนิทานสั้นหัวข้อ ความสามัคคี สำหรับเด็กอนุบาล พร้อมข้อคิดท้ายเรื่อง",
+        "สร้างแบบประเมินตนเองสำหรับนักเรียน เรื่องวินัยในห้องเรียน",
+        "ออกแบบกิจกรรมศิลปะ เรื่องสีและรูปทรง สำหรับอนุบาล 2 ใช้วัสดุง่าย ๆ",
+        "สร้างเพลงสำหรับเด็กอนุบาล เรื่องการนับเลข 1-10 พร้อมท่าเต้น",
+        "คิดเกมการออกเสียงภาษาอังกฤษ สำหรับ ป.1-2 ใช้เวลา 20 นาที"
       ];
       const random = prompts[Math.floor(Math.random() * prompts.length)];
       document.getElementById('randomPromptBox').textContent = random;
@@ -1363,12 +1753,18 @@
 
     // Prompt Gallery Copy
     function copyPrompt(el) {
-      navigator.clipboard.writeText(el.textContent.trim());
-      el.style.background = '#c6f6d5';
-      setTimeout(() => { el.style.background = '#f7fafc'; }, 1000);
+      const text = el.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        el.style.background = '#c6f6d5';
+        el.style.borderColor = '#38a169';
+        setTimeout(() => { 
+          el.style.background = '#f7fafc'; 
+          el.style.borderColor = '#e2e8f0';
+        }, 1500);
+      });
     }
 
-    // Smooth scroll nav (เหมือนเวอร์ชันเดิม)
+    // Smooth scroll nav
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1387,12 +1783,14 @@
       const sections = document.querySelectorAll('.section');
       const navLinks = document.querySelectorAll('nav a');
       let currentSection = '';
+      
       sections.forEach(section => {
         const rect = section.getBoundingClientRect();
         if (rect.top <= 100 && rect.bottom > 100) {
           currentSection = '#' + section.id;
         }
       });
+      
       navLinks.forEach(link => {
         link.style.background = '';
         link.style.color = '#ffffff';
@@ -1402,11 +1800,12 @@
         }
       });
     }
+    
     window.addEventListener('scroll', highlightCurrentSection);
     highlightCurrentSection();
 
-    // Ripple Button Effect (เหมือนเดิม)
-    document.querySelectorAll('.btn').forEach(btn => {
+    // Ripple Button Effect
+    document.querySelectorAll('.btn, .share-btn').forEach(btn => {
       btn.addEventListener('click', function(e) {
         const rect = this.getBoundingClientRect();
         const ripple = document.createElement('span');
@@ -1430,6 +1829,7 @@
         }, 600);
       });
     });
+    
     const rippleStyle = document.createElement('style');
     rippleStyle.textContent = `@keyframes ripple { to { transform: scale(4); opacity: 0; } }`;
     document.head.appendChild(rippleStyle);
@@ -1444,6 +1844,7 @@
         }
       });
     }, observerOptions);
+    
     document.querySelectorAll('.section').forEach(section => {
       section.style.opacity = '0';
       section.style.transform = 'translateY(30px)';
@@ -1451,20 +1852,54 @@
       observer.observe(section);
     });
 
-    // Copy prompt text functionality (prompt-text)
+    // Enhanced Copy prompt text functionality
     document.querySelectorAll('.prompt-text').forEach(promptBox => {
       promptBox.addEventListener('click', function() {
-        navigator.clipboard.writeText(this.textContent.trim()).then(() => {
+        const text = this.textContent.trim();
+        navigator.clipboard.writeText(text).then(() => {
           const originalBg = this.style.backgroundColor;
           this.style.backgroundColor = '#c6f6d5';
           this.style.transition = 'background-color 0.3s';
+          
+          // Show tooltip
+          const tooltip = document.createElement('div');
+          tooltip.textContent = 'คัดลอกแล้ว! คลิกเพื่อแชร์ใน LINE';
+          tooltip.style.position = 'absolute';
+          tooltip.style.background = '#2d3748';
+          tooltip.style.color = 'white';
+          tooltip.style.padding = '5px 10px';
+          tooltip.style.borderRadius = '5px';
+          tooltip.style.fontSize = '12px';
+          tooltip.style.zIndex = '1000';
+          tooltip.style.top = '10px';
+          tooltip.style.right = '10px';
+          this.style.position = 'relative';
+          this.appendChild(tooltip);
+          
           setTimeout(() => {
             this.style.backgroundColor = originalBg;
-          }, 1000);
+            if (tooltip.parentNode) {
+              tooltip.parentNode.removeChild(tooltip);
+            }
+          }, 2000);
         });
       });
+      
       promptBox.style.cursor = 'pointer';
       promptBox.title = 'คลิกเพื่อคัดลอก Prompt';
+    });
+
+    // Add hover effects to prompt cards
+    document.querySelectorAll('.prompt-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 4px 12px rgba(102, 126, 234, 0.15)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = '0 2px 6px rgba(102,126,234,0.07)';
+      });
     });
   </script>
 </body>
